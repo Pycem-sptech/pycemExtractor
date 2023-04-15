@@ -6,39 +6,53 @@ package eduardo.pycemjar;
 
 /**
  *
- * @author eduardo
+ * @author Cris
  */
 public class Usuario {
-    
-    private String login;
+    private String nome;
+    private String email;
+    private String cpf;
     private String senha;
+    private String cargo;
 
-    public Usuario(String login, String senha) {
-        this.login = login;
-        this.senha = senha;
-    }
-    
-    public String getLogin() {
-        return login;
+    public String getNome() {
+        return nome;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public String getSenha() {
         return senha;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    @Override
-    public String toString() {
-        String frase = String.format("Login: %s \n"
-                + "Senha: %s", login, senha);
-        return frase;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
     
     

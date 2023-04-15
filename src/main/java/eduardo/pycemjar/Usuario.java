@@ -47,10 +47,6 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }

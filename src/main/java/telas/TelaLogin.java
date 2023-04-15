@@ -139,6 +139,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        String usuario = txtLogin.getText();
+        String senha = txtSenha.getText();
+        
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoginFocusGained

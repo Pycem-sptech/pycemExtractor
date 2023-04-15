@@ -4,15 +4,17 @@
  */
 package telas;
 
+import eduardo.pycemjar.Database;
 import telas.Utilitarios;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.util.List;
 /**
  *
  * @author Usuário
  */
 public class TelaLogin extends javax.swing.JFrame {
-    
+    Database db = new Database();
     Utilitarios util = new Utilitarios();
     
     /**
@@ -141,6 +143,16 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
+        
+        List<String> realizarLogin = db.realizarSelect(usuario, senha);
+        String usuarioSelect = realizarLogin.get(0);
+        String senhaSelect = realizarLogin.get(1);
+        
+        if(usuario.equals(usuarioSelect) && senha.equals(senhaSelect)){
+            jLabel1.setForeground(Color.GREEN);
+        }else{
+             jLabel1.setForeground(Color.RED);
+        }
         
 
     }//GEN-LAST:event_btnEntrarActionPerformed

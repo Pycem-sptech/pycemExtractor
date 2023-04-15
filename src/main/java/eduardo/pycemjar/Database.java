@@ -21,16 +21,12 @@ public class Database {
             
             JdbcTemplate template = new JdbcTemplate(dataSource);
             Usuario usuarioListado = template.queryForObject("select * from usuario where email = ? and senha = ?", 
-            new BeanPropertyRowMapper<Usuario>(Usuario.class), email, senha);
-            
-            System.out.println(usuarioListado.getNome());
+            new BeanPropertyRowMapper<Usuario>(Usuario.class), email, senha); 
             
             List<String> dadosUsuario = new ArrayList();
             dadosUsuario.add(usuarioListado.getEmail());
             dadosUsuario.add(usuarioListado.getSenha());
-           
-            System.out.println(dadosUsuario);
-            
+     
             return dadosUsuario;
        }
     

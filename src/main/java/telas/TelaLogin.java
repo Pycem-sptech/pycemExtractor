@@ -4,11 +4,20 @@
  */
 package telas;
 
+import com.github.britooo.looca.api.core.Looca;
+import com.github.britooo.looca.api.group.discos.Disco;
+import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import com.github.britooo.looca.api.group.memoria.Memoria;
+import com.github.britooo.looca.api.group.processador.Processador;
+import com.github.britooo.looca.api.group.rede.RedeInterface;
+import com.github.britooo.looca.api.group.rede.RedeInterfaceGroup;
+import com.github.britooo.looca.api.util.Conversor;
 import eduardo.pycemjar.Database;
 import telas.Utilitarios;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.util.List;
+import java.util.Scanner;
 /**
  *
  * @author Usuário
@@ -16,6 +25,8 @@ import java.util.List;
 public class TelaLogin extends javax.swing.JFrame {
     Database db = new Database();
     Utilitarios util = new Utilitarios();
+    Scanner sc = new Scanner(System.in);
+    Looca looca = new Looca();
     
     /**
      * Creates new form TelaLogin
@@ -26,7 +37,7 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setBackground(Color.WHITE);
         Utilitarios util = new Utilitarios();
         util.InserirIcone(this);
-       
+        
     }
 
     /**
@@ -150,6 +161,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         if(usuario.equals(usuarioSelect) && senha.equals(senhaSelect)){
             jLabel1.setForeground(Color.GREEN);
+            mostrarInformacoes();
         }else{
              jLabel1.setForeground(Color.RED);
         }
@@ -232,5 +244,78 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void colocarIcone() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/Py.png")));
+    }
+    
+    private void mostrarInformacoes(){
+        System.out.println("---------------------------------");
+        System.out.println("|                               |");
+        System.out.println("| Bem-vindo ao Pycem Extractor! |");
+        System.out.println("|                               |");
+        System.out.println("---------------------------------");
+        System.out.println("");
+        Integer numeroEscolhido;
+        do {            
+            System.out.println("1 - Ver informações do processador \n"
+                    + "2 - Ver informações da memória RAM \n"
+                    + "3 - Ver informações da memória de massa \n"
+                    + "4 - Ver informações de rede\n"
+                    + "0 - Sair");
+            numeroEscolhido = sc.nextInt();
+            
+            
+            switch(numeroEscolhido){
+                case 1:
+                    exibirProcessador();
+                    break;
+                case 2:
+                    exibirMemoriaRAM();
+                    break;
+                case 3:
+                    exibirMemoriaDeMassa();
+                    break;
+                case 4:
+                    exibirInformacoesDeRede();
+                    break;
+            }
+            
+        } while (numeroEscolhido != 0);
+    }
+    
+    public void exibirProcessador(){
+        System.out.println("");
+        Processador processador = looca.getProcessador();
+            System.out.println(processador);  
+    }
+    
+    public void exibirMemoriaRAM(){
+        System.out.println("");
+        Memoria memoria = new Memoria();
+        String memoriaEmUso = Conversor.formatarBytes(memoria.getEmUso());
+        String memoriaTotal = Conversor.formatarBytes(memoria.getTotal());
+        System.out.println("Memória RAM:");
+        System.out.println("Memória em uso: " + memoriaEmUso);
+        System.out.println("Memória total: " + memoriaTotal);
+        
+    }
+    
+    public void exibirMemoriaDeMassa(){
+        DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
+
+        List<Disco> discos = grupoDeDiscos.getDiscos();
+        System.out.println("");
+        System.out.println("Memória de Massa:");
+        for (Disco disco : discos) {
+            System.out.println(disco);
+            
+        }
+        
+    }
+    
+    public void exibirInformacoesDeRede(){
+        RedeInterfaceGroup grupoDeRede = looca.getRede().getGrupoDeInterfaces();
+        List<RedeInterface> redeInterfaces = grupoDeRede.getInterfaces();
+        for (RedeInterface redeInterface : redeInterfaces) {
+            System.out.println(redeInterface);
+        }
     }
 }

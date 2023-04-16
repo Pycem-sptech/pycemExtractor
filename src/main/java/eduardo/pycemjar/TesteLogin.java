@@ -11,6 +11,7 @@ package eduardo.pycemjar;
 public class TesteLogin {
     public static void main(String[] args) {
         Database banco = new Database();
-        banco.realizarSelect("leonardo@gmail.com", "M@12345678");
+        banco.realizarSelect("1", "1");
+        
     }
 }

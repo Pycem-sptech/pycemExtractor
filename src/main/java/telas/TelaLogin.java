@@ -75,7 +75,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Login");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(810, 200, 112, 50);
+        jLabel1.setBounds(810, 200, 94, 50);
 
         txtLogin.setBackground(new java.awt.Color(255, 255, 255));
         txtLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -152,18 +152,23 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados();
+        
+        
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
-        
+       
         List<String> realizarLogin = db.realizarSelect(usuario, senha);
         String usuarioSelect = realizarLogin.get(0);
         String senhaSelect = realizarLogin.get(1);
         
         if(usuario.equals(usuarioSelect) && senha.equals(senhaSelect)){
-            jLabel1.setForeground(Color.GREEN);
-            mostrarInformacoes();
+            this.setVisible(false);
+            exibicaoDeDados.setLocationRelativeTo(null);
+            exibicaoDeDados.setVisible(true);
+            
         }else{
-             jLabel1.setForeground(Color.RED);
+
         }
         
 
@@ -223,7 +228,7 @@ public class TelaLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -241,7 +246,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
-
+    
     private void colocarIcone() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/Py.png")));
     }
@@ -289,12 +294,9 @@ public class TelaLogin extends javax.swing.JFrame {
     
     public void exibirMemoriaRAM(){
         System.out.println("");
-        Memoria memoria = new Memoria();
-        String memoriaEmUso = Conversor.formatarBytes(memoria.getEmUso());
-        String memoriaTotal = Conversor.formatarBytes(memoria.getTotal());
+        Memoria memoria = looca.getMemoria();
         System.out.println("Memória RAM:");
-        System.out.println("Memória em uso: " + memoriaEmUso);
-        System.out.println("Memória total: " + memoriaTotal);
+        System.out.println(memoria);
         
     }
     
@@ -318,4 +320,6 @@ public class TelaLogin extends javax.swing.JFrame {
             System.out.println(redeInterface);
         }
     }
+    
+
 }

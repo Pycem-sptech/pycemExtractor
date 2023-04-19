@@ -14,6 +14,7 @@ import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
 import com.github.britooo.looca.api.group.servicos.Servico;
 import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,11 +23,13 @@ import java.util.List;
  */
 public class TelaExibicaoDeDados extends javax.swing.JFrame {
     Looca looca = new Looca();
+    Utilitarios util = new Utilitarios();
     /**
      * Creates new form TelaExibicaoDeDados
      */
     public TelaExibicaoDeDados() {
         initComponents();
+        util.InserirIcone(this);
     }
 
     /**
@@ -58,8 +61,31 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        lblInfoProcessos = new javax.swing.JLabel();
+        lblDesempenho = new javax.swing.JLabel();
+        lblInfoProcessosNome = new javax.swing.JLabel();
+        lblInfoProcessosUsoMemoria = new javax.swing.JLabel();
+        lblInfoProcessosUsoCPU = new javax.swing.JLabel();
+        lblInfoProcessosNome3 = new javax.swing.JLabel();
+        lblInfoProcessosNome2 = new javax.swing.JLabel();
+        lblInfoProcessosUsoMemoria2 = new javax.swing.JLabel();
+        lblInfoProcessosUsoCPU2 = new javax.swing.JLabel();
+        lblInfoProcessos2 = new javax.swing.JLabel();
+        lblInfoProcessosNome8 = new javax.swing.JLabel();
+        lblInfoProcessosUsoMemoria3 = new javax.swing.JLabel();
+        lblInfoProcessosUsoCPU3 = new javax.swing.JLabel();
+        lblInfoProcessos3 = new javax.swing.JLabel();
+        lblInfoProcessosNome4 = new javax.swing.JLabel();
+        lblInfoProcessosUsoMemoria4 = new javax.swing.JLabel();
+        lblInfoProcessosUsoCPU4 = new javax.swing.JLabel();
+        lblInfoProcessos4 = new javax.swing.JLabel();
+        lblInfoProcessosUsoMemoria5 = new javax.swing.JLabel();
+        lblInfoProcessosUsoCPU5 = new javax.swing.JLabel();
+        lblInfoProcessos5 = new javax.swing.JLabel();
+        lblInfoProcessosNome5 = new javax.swing.JLabel();
+        lblInfoProcessosUsoCPU6 = new javax.swing.JLabel();
+        lblInfoProcessos6 = new javax.swing.JLabel();
+        lblInfoProcessosUsoMemoria6 = new javax.swing.JLabel();
+        lblInfoProcessosNome6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,69 +153,181 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Memória RAM:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel9.setText("Desempenho:");
+        lblDesempenho.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblDesempenho.setText("Desempenho:");
 
-        lblInfoProcessos.setText("Processos:");
-        lblInfoProcessos.setMaximumSize(new java.awt.Dimension(200, 500));
+        lblInfoProcessosNome.setText("Nome:");
+        lblInfoProcessosNome.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoMemoria.setText("Uso de memória:");
+        lblInfoProcessosUsoMemoria.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoCPU.setText("Uso de CPU:");
+        lblInfoProcessosUsoCPU.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosNome3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblInfoProcessosNome3.setText("Processo 1:");
+        lblInfoProcessosNome3.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosNome2.setText("Nome:");
+        lblInfoProcessosNome2.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoMemoria2.setText("Uso de memória:");
+        lblInfoProcessosUsoMemoria2.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoCPU2.setText("Uso de CPU:");
+        lblInfoProcessosUsoCPU2.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessos2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblInfoProcessos2.setText("Processo 2:");
+        lblInfoProcessos2.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosNome8.setText("Nome:");
+        lblInfoProcessosNome8.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoMemoria3.setText("Uso de memória:");
+        lblInfoProcessosUsoMemoria3.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoCPU3.setText("Uso de CPU:");
+        lblInfoProcessosUsoCPU3.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessos3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblInfoProcessos3.setText("Processo 3:");
+        lblInfoProcessos3.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosNome4.setText("Nome:");
+        lblInfoProcessosNome4.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoMemoria4.setText("Uso de memória:");
+        lblInfoProcessosUsoMemoria4.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoCPU4.setText("Uso de CPU:");
+        lblInfoProcessosUsoCPU4.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessos4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblInfoProcessos4.setText("Processo 4:");
+        lblInfoProcessos4.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoMemoria5.setText("Uso de memória:");
+        lblInfoProcessosUsoMemoria5.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoCPU5.setText("Uso de CPU:");
+        lblInfoProcessosUsoCPU5.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessos5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblInfoProcessos5.setText("Processo 5:");
+        lblInfoProcessos5.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosNome5.setText("Nome:");
+        lblInfoProcessosNome5.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoCPU6.setText("Uso de CPU:");
+        lblInfoProcessosUsoCPU6.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessos6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblInfoProcessos6.setText("Processo 6:");
+        lblInfoProcessos6.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosUsoMemoria6.setText("Uso de memória:");
+        lblInfoProcessosUsoMemoria6.setMaximumSize(new java.awt.Dimension(200, 500));
+
+        lblInfoProcessosNome6.setText("Nome:");
+        lblInfoProcessosNome6.setMaximumSize(new java.awt.Dimension(200, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(199, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(lblInfoRAMTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(334, 334, 334))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblInfoMemoriaMassaTamanho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblInfoMemoriaMassaModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblInfoMemoriaMassaNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblInfoProcessadorCPULogica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblInfoProcessadorCPUFisicas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblInfoProcessadorNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblInfoProcessadorFabricante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGap(0, 0, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(btnProcessador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                    .addComponent(jLabel1)
-                                                    .addGap(401, 401, 401)))))
-                                    .addGap(61, 61, 61)))
-                            .addGap(8, 8, 8)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(lblInfoProcessadorEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(59, 59, 59)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblInfoRAMEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel8)
-                                        .addComponent(lblInfoRAMDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(9, 9, 9)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(lblInfoProcessos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(188, 188, 188)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(334, 334, 334))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnProcessador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addGap(401, 401, 401))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblInfoProcessadorFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(61, 61, 61))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblInfoProcessadorCPULogica, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblInfoProcessadorCPUFisicas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblInfoProcessadorNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(lblInfoProcessadorEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblInfoRAMEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(lblInfoRAMDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblInfoProcessosUsoCPU, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblInfoProcessosNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblInfoProcessosUsoMemoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblInfoProcessosNome3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblInfoProcessos4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblInfoProcessosUsoMemoria4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblInfoProcessosNome4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblInfoProcessosUsoCPU4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblInfoProcessosUsoCPU2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosNome2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosUsoMemoria2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblInfoProcessos2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblInfoProcessos3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblInfoProcessosUsoMemoria3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosNome8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosUsoCPU3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblInfoProcessos6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblInfoProcessosUsoMemoria6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosNome6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosUsoCPU6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblInfoProcessos5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblInfoProcessosUsoMemoria5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosNome5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblInfoProcessosUsoCPU5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(88, 88, 88))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(lblInfoRAMTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(lblInfoMemoriaMassaTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInfoMemoriaMassaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInfoMemoriaMassaNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(777, Short.MAX_VALUE)
-                    .addComponent(jLabel9)
+                    .addContainerGap(786, Short.MAX_VALUE)
+                    .addComponent(lblDesempenho)
                     .addGap(304, 304, 304)))
         );
         layout.setVerticalGroup(
@@ -215,32 +353,91 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
                     .addComponent(lblInfoRAMDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblInfoProcessadorCPUFisicas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInfoProcessadorCPULogica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(lblInfoProcessos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInfoRAMTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblInfoMemoriaMassaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblInfoMemoriaMassaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblInfoMemoriaMassaTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addComponent(btnProcessador)
-                .addGap(108, 108, 108))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(lblInfoProcessosNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblInfoRAMTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblInfoProcessosNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblInfoProcessosUsoMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblInfoProcessosUsoCPU, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInfoProcessos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosNome4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoMemoria4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoCPU4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInfoProcessos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoMemoria2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoCPU2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInfoProcessos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosNome5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoMemoria5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoCPU5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInfoProcessos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosNome8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoMemoria3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoCPU3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68)
+                                .addComponent(btnProcessador))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInfoProcessos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosNome6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoMemoria6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInfoProcessosUsoCPU6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(67, 67, 67))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(12, 12, 12)
+                        .addComponent(lblInfoMemoriaMassaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblInfoMemoriaMassaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblInfoMemoriaMassaTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(103, 103, 103)
-                    .addComponent(jLabel9)
-                    .addContainerGap(541, Short.MAX_VALUE)))
+                    .addComponent(lblDesempenho)
+                    .addContainerGap(575, Short.MAX_VALUE)))
         );
 
         pack();
@@ -296,7 +493,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblDesempenho;
     private javax.swing.JLabel lblInfoMemoriaMassaModelo;
     private javax.swing.JLabel lblInfoMemoriaMassaNome;
     private javax.swing.JLabel lblInfoMemoriaMassaTamanho;
@@ -305,7 +502,30 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfoProcessadorEmUso;
     private javax.swing.JLabel lblInfoProcessadorFabricante;
     private javax.swing.JLabel lblInfoProcessadorNome;
-    private javax.swing.JLabel lblInfoProcessos;
+    private javax.swing.JLabel lblInfoProcessos2;
+    private javax.swing.JLabel lblInfoProcessos3;
+    private javax.swing.JLabel lblInfoProcessos4;
+    private javax.swing.JLabel lblInfoProcessos5;
+    private javax.swing.JLabel lblInfoProcessos6;
+    private javax.swing.JLabel lblInfoProcessosNome;
+    private javax.swing.JLabel lblInfoProcessosNome2;
+    private javax.swing.JLabel lblInfoProcessosNome3;
+    private javax.swing.JLabel lblInfoProcessosNome4;
+    private javax.swing.JLabel lblInfoProcessosNome5;
+    private javax.swing.JLabel lblInfoProcessosNome6;
+    private javax.swing.JLabel lblInfoProcessosNome8;
+    private javax.swing.JLabel lblInfoProcessosUsoCPU;
+    private javax.swing.JLabel lblInfoProcessosUsoCPU2;
+    private javax.swing.JLabel lblInfoProcessosUsoCPU3;
+    private javax.swing.JLabel lblInfoProcessosUsoCPU4;
+    private javax.swing.JLabel lblInfoProcessosUsoCPU5;
+    private javax.swing.JLabel lblInfoProcessosUsoCPU6;
+    private javax.swing.JLabel lblInfoProcessosUsoMemoria;
+    private javax.swing.JLabel lblInfoProcessosUsoMemoria2;
+    private javax.swing.JLabel lblInfoProcessosUsoMemoria3;
+    private javax.swing.JLabel lblInfoProcessosUsoMemoria4;
+    private javax.swing.JLabel lblInfoProcessosUsoMemoria5;
+    private javax.swing.JLabel lblInfoProcessosUsoMemoria6;
     private javax.swing.JLabel lblInfoRAMDisponivel;
     private javax.swing.JLabel lblInfoRAMEmUso;
     private javax.swing.JLabel lblInfoRAMTotal;
@@ -343,46 +563,38 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         }
         
         
-        ServicoGrupo grupoDeServicos = new ServicoGrupo();
         ProcessoGrupo grupoDeProcesso = new ProcessoGrupo();
         List<Processo> processos = grupoDeProcesso.getProcessos();
-        List<Servico> servicos = grupoDeServicos.getServicosAtivos();
-        
-        String txtLabel = "";
-        for(Processo processo : processos){
-            if(processo.getUsoMemoria() > 2){
+        List<Processo> processosLabel = new ArrayList<Processo>();
+        for(int i = 0; i < processos.size(); i++){
+            if(processos.get(i).getUsoCpu()> 2){
+                processosLabel.add(processos.get(i));
                 
-                String txtLabel2 = String.format("Nome: %s \n Uso da memória: %.2f \n Uso da CPU: %.2f \n", processo.getNome(), processo.getUsoMemoria(), processo.getUsoCpu());
-                txtLabel += txtLabel2;
-                
-            }  
+            }
         }
-        lblInfoProcessos.setText(txtLabel);
-        System.out.println(txtLabel);
-
-        //System.out.println(processos.get(0).getNome());
-        //System.out.println(String.format("%.2f", processos.get(0).getUsoCpu()));
-        //System.out.println(Conversor.formatarBytes(processos.get(0).getMemoriaVirtualUtilizada()));
-        //System.out.println(processos.get(1).getNome());
-        //System.out.println(String.format("%.2f", processos.get(1).getUsoCpu()));
-        //System.out.println(Conversor.formatarBytes(processos.get(1).getMemoriaVirtualUtilizada()));
-        //System.out.println(processos.get(2).getNome());
-        //System.out.println(String.format("%.2f", processos.get(2).getUsoCpu()));
-        //System.out.println(Conversor.formatarBytes(processos.get(2).getMemoriaVirtualUtilizada()));
-        //System.out.println(processos.get(3).getNome());
-        //System.out.println(String.format("%.2f", processos.get(3).getUsoCpu()));
-        //System.out.println(Conversor.formatarBytes(processos.get(3).getMemoriaVirtualUtilizada()));
-        //System.out.println(processos.get().getNome());
-        //System.out.println(String.format("%.2f", processos.get(4).getUsoCpu()));
-        //System.out.println(Conversor.formatarBytes(processos.get(4).getMemoriaVirtualUtilizada()));
+        lblInfoProcessosNome.setText(String.format("Nome: %s", processosLabel.get(0).getNome()));
+        System.out.println(processosLabel.get(0).getPid());
+        lblInfoProcessosUsoMemoria.setText(String.format("Uso de memória: %.2f", processosLabel.get(0).getUsoMemoria()));
+        lblInfoProcessosUsoCPU.setText(String.format("Uso da CPU: %.2f", processosLabel.get(0).getUsoCpu()));
         
+        lblInfoProcessosNome2.setText(String.format("Nome: %s", processosLabel.get(1).getNome()));
+        lblInfoProcessosUsoMemoria2.setText(String.format("Uso de memória: %.2f", processosLabel.get(1).getUsoMemoria()));
+        lblInfoProcessosUsoCPU2.setText(String.format("Uso da CPU: %.2f", processosLabel.get(1).getUsoCpu()));
         
+        lblInfoProcessosNome8.setText(String.format("Nome: %s", processosLabel.get(2).getNome()));
+        lblInfoProcessosUsoMemoria3.setText(String.format("Uso de memória: %.2f", processosLabel.get(2).getUsoMemoria()));
+        lblInfoProcessosUsoCPU3.setText(String.format("Uso da CPU: %.2f", processosLabel.get(2).getUsoCpu()));
         
+        lblInfoProcessosNome4.setText(String.format("Nome: %s", processosLabel.get(3).getNome()));
+        lblInfoProcessosUsoMemoria4.setText(String.format("Uso de memória: %.2f", processosLabel.get(3).getUsoMemoria()));
+        lblInfoProcessosUsoCPU4.setText(String.format("Uso da CPU: %.2f", processosLabel.get(3).getUsoCpu()));
         
+        lblInfoProcessosNome5.setText(String.format("Nome: %s", processosLabel.get(4).getNome()));
+        lblInfoProcessosUsoMemoria5.setText(String.format("Uso de memória: %.2f", processosLabel.get(4).getUsoMemoria()));
+        lblInfoProcessosUsoCPU5.setText(String.format("Uso da CPU: %.2f", processosLabel.get(4).getUsoCpu()));
         
-                
-                
-                
-        
+        lblInfoProcessosNome6.setText(String.format("Nome: %s", processosLabel.get(5).getNome()));
+        lblInfoProcessosUsoMemoria6.setText(String.format("Uso de memória: %.2f", processosLabel.get(5).getUsoMemoria()));
+        lblInfoProcessosUsoCPU6.setText(String.format("Uso da CPU: %.2f", processosLabel.get(5).getUsoCpu()));
     }
 }

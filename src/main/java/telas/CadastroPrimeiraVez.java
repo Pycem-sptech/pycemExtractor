@@ -19,12 +19,14 @@ import java.util.List;
  */
 public class CadastroPrimeiraVez extends javax.swing.JFrame {
     Looca looca = new Looca();
+    Utilitarios util = new Utilitarios();
 
     /**
      * Creates new form CadastroPrimeiraVez
      */
     public CadastroPrimeiraVez() {
         initComponents();
+        util.InserirIcone(this);
     }
 
     /**

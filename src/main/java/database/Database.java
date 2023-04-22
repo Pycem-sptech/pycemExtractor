@@ -19,33 +19,38 @@ public class Database {
         dataSource.setPassword("#Gfgrupo8");
         template = new JdbcTemplate(dataSource);
     }
+    
+    public Integer selectIdTotem(String usuario) {
+        Totem totemListado = template.queryForObject("SELECT idTotem FROM [dbo].[totem] WHERE usuario = ?;",
+                new BeanPropertyRowMapper<Totem>(Totem.class), usuario);
+        return totemListado.getIdTotem();
+    }
+    
+    public Alerta selectAlerta() {
+        Alerta alerta = template.queryForObject("SELECT * FROM [dbo].[alerta] WHERE fkEmpresa = ?;",
+                new BeanPropertyRowMapper<Alerta>(Alerta.class), 100);
+        return alerta;
+    }
+    
     // Trocar o login pelo da máquina
     public Boolean selectLogin(String usuario, String senha) {
         Totem totemListado = template.queryForObject("SELECT usuario, senha FROM [dbo].[totem] WHERE usuario = ? AND senha = ?;",
                 new BeanPropertyRowMapper<Totem>(Totem.class), usuario, senha);
         
-        System.out.println(totemListado.getUsuario());
-        System.out.println(totemListado.getSenha());
         if (totemListado.getUsuario().equals(usuario)){
             System.out.println(totemListado.getUsuario());
             return true;
         } else {
             return false;
         }
-        //List<String> dadosUsuario = new ArrayList();
-        //dadosUsuario.add(usuarioListado.getEmail());
-        //dadosUsuario.add(usuarioListado.getSenha());
-        //dadosUsuario.add(usuarioListado.getNome());
-        //dadosUsuario.add(usuarioListado.getCpf());
-        //dadosUsuario.add(usuarioListado.getCargo());
-        //return dadosUsuario;
     }
     // Verificar o cadastro da máquina
     public Boolean verificarCadastro(String usuario){
-        Totem totemListado = template.queryForObject("SELECT usuario FROM totem WHERE usuario = ?",
+        Totem totemListado = template.queryForObject("SELECT processador FROM totem WHERE usuario = ?",
                 new BeanPropertyRowMapper<Totem>(Totem.class), usuario);
         
-        if (totemListado.getProcessador() == null){
+        String teste = String.format("%s", totemListado.getProcessador());
+        if (totemListado.getProcessador().equals("Não Especificado")){
             return false;
         } else {
             return true;
@@ -72,6 +77,27 @@ public class Database {
                 ipv4, 
                 macAdress,
                 usuario);
+    
+    }
+    
+    public void inserirDados(
+            String usoProcessador,
+            String usoRam,
+            String usoHd,
+            String cpuStatus,
+            String ramStatus,
+            String hdStatus,
+            Integer fkTotem
+    ){
+        template.update("INSERT INTO [dbo].[registro](uso_processador, uso_ram, uso_hd, cpu_status, ram_status, hd_status, data_registro, fkTotem) "
+                + "VALUES (?, ?, ?, ?, ?, ?, getDate(), ?)",
+                usoProcessador,
+                usoRam,
+                usoHd,
+                cpuStatus,
+                ramStatus,
+                hdStatus,
+                fkTotem);
     
     }
 }

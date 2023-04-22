@@ -36,7 +36,7 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
     public TelaCadastroPrimeiraVez(String usuario){
         initComponents();
         util.InserirIcone(this);
-        
+        this.usuario = usuario;
     }
 
     /**
@@ -437,7 +437,22 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
     
     //Cadastrar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados();
+        Integer idTotem = db.selectIdTotem(usuario);
+        Integer freqAlerta = db.selectAlerta().getFreqAlerta();
+        Integer cpuAlerta = db.selectAlerta().getCpuAlerta();
+        Integer cpuCritico = db.selectAlerta().getCpuCritico();
+        Integer ramAlerta = db.selectAlerta().getRamAlerta();
+        Integer ramCritico = db.selectAlerta().getRamCritico();
+        Integer hdAlerta = db.selectAlerta().getHdAlerta();
+        Integer hdCritico = db.selectAlerta().getCpuCritico();
+        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados(idTotem,
+            freqAlerta,
+            cpuAlerta,
+            cpuCritico,
+            ramAlerta,
+            ramCritico,
+            hdAlerta,
+            hdCritico);
         
         //Rede
         Rede rede = looca.getRede();
@@ -453,7 +468,8 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
         String memoriaMassaTipo = lblMemoriaMassaTipo.getText();
         String memoriaMassaTamanho = lblMemoriaMassaTamanho.getText();
 
-        db.atualizarCadastro("UNIT_PAULISTA1", processadorID, processadorNome, memoriaRAM, memoriaMassaTipo, memoriaMassaTamanho, redeIpv4, redeMacAdress);
+        
+        db.atualizarCadastro(usuario, processadorID, processadorNome, memoriaRAM, memoriaMassaTipo, memoriaMassaTamanho, redeIpv4, redeMacAdress);
         
         this.setVisible(false);
         exibicaoDeDados.setLocationRelativeTo(null);
@@ -512,7 +528,7 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
     private void lblMemoriaMassaTipoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lblMemoriaMassaTipoFocusGained
         if (lblMemoriaMassaTipo.getText().equals("Tipo")) {
             lblMemoriaMassaTipo.setText("");
-            lblMemoriaMassaTipo.setForeground(new Color(183, 183, 183));
+            lblMemoriaMassaTipo.setForeground(new Color(000, 000, 000));
         }
     }//GEN-LAST:event_lblMemoriaMassaTipoFocusGained
 

@@ -14,22 +14,59 @@ import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
 import com.github.britooo.looca.api.group.servicos.Servico;
 import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
+import database.Database;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 /**
  *
  * @author Usuário
  */
 public class TelaExibicaoDeDados extends javax.swing.JFrame {
+
     Looca looca = new Looca();
     Utilitarios util = new Utilitarios();
+    Database db = new Database();
+    private Integer fkTotem;
+    private Integer freqAlerta;
+    private Integer cpuAlerta;
+    private Integer cpuCritico;
+    private Integer ramAlerta;
+    private Integer ramCritico;
+    private Integer hdAlerta;
+    private Integer hdCritico;
+
     /**
      * Creates new form TelaExibicaoDeDados
      */
     public TelaExibicaoDeDados() {
         initComponents();
         util.InserirIcone(this);
+    }
+
+    public TelaExibicaoDeDados(
+            Integer fkTotem,
+            Integer freqAlerta,
+            Integer cpuAlerta,
+            Integer cpuCritico,
+            Integer ramAlerta,
+            Integer ramCritico,
+            Integer hdAlerta,
+            Integer hdCritico) {
+        initComponents();
+        util.InserirIcone(this);
+        this.fkTotem = fkTotem;
+        this.freqAlerta = freqAlerta;
+        this.cpuAlerta = cpuAlerta;
+        this.cpuCritico = cpuCritico;
+        this.ramAlerta = ramAlerta;
+        this.ramCritico = ramCritico;
+        this.hdAlerta = hdAlerta;
+        this.hdCritico = hdCritico;
     }
 
     /**
@@ -446,7 +483,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
 
     private void btnProcessadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessadorActionPerformed
         // TODO add your handling code here:
-        exibirProcessador();
+        exibirDados();
+        inserirDados();
     }//GEN-LAST:event_btnProcessadorActionPerformed
 
     /**
@@ -531,8 +569,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfoRAMEmUso;
     private javax.swing.JLabel lblInfoRAMTotal;
     // End of variables declaration//GEN-END:variables
-    
-    public void exibirProcessador(){
+
+    public void exibirDados() {
         Processador processador = looca.getProcessador();
         System.out.println(processador);
         lblInfoProcessadorFabricante.setText("Fabricante: " + processador.getFabricante());
@@ -540,62 +578,129 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         lblInfoProcessadorCPUFisicas.setText("Número de CPU Física: " + processador.getNumeroCpusFisicas().toString());
         lblInfoProcessadorCPULogica.setText("Número de CPU Lógica: " + processador.getNumeroCpusLogicas().toString());
         lblInfoProcessadorEmUso.setText(String.format("Em uso: %.2f", processador.getUso()));
-        
+
         Memoria memoria = looca.getMemoria();
         System.out.println(memoria);
         String memoriaEmUso = Conversor.formatarBytes(memoria.getEmUso());
         String memoriaTotal = Conversor.formatarBytes(memoria.getTotal());
         String memoriaDisponivel = Conversor.formatarBytes(memoria.getDisponivel());
-        
+
         lblInfoRAMEmUso.setText(String.format("Em uso: %s", memoriaEmUso));
         lblInfoRAMDisponivel.setText(String.format("Disponível: %s", memoriaDisponivel));
         lblInfoRAMTotal.setText(String.format("Total: %s", memoriaTotal));
-        
-        
+
         DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
         List<Disco> discos = grupoDeDiscos.getDiscos();
         for (Disco disco : discos) {
             System.out.println(disco);
-            
+
             lblInfoMemoriaMassaNome.setText(String.format("Nome: %s", disco.getNome()));
             lblInfoMemoriaMassaModelo.setText(String.format("Modelo: %s", disco.getModelo()));
             lblInfoMemoriaMassaTamanho.setText(String.format("Tamanho: %s", Conversor.formatarBytes(disco.getTamanho())));
-           
+
         }
-        
-        
+
         ProcessoGrupo grupoDeProcesso = new ProcessoGrupo();
         List<Processo> processos = grupoDeProcesso.getProcessos();
         List<Processo> processosLabel = new ArrayList<Processo>();
-        for(int i = 0; i < processos.size(); i++){
-            if(processos.get(i).getUsoCpu()> 2){
+        for (int i = 0; i < processos.size(); i++) {
+            if (processos.get(i).getUsoCpu() > 2) {
                 processosLabel.add(processos.get(i));
-                
+
             }
         }
         lblInfoProcessosNome.setText(String.format("Nome: %s", processosLabel.get(0).getNome()));
         System.out.println(processosLabel.get(0).getPid());
         lblInfoProcessosUsoMemoria.setText(String.format("Uso de memória: %.2f", processosLabel.get(0).getUsoMemoria()));
         lblInfoProcessosUsoCPU.setText(String.format("Uso da CPU: %.2f", processosLabel.get(0).getUsoCpu()));
-        
+
         lblInfoProcessosNome2.setText(String.format("Nome: %s", processosLabel.get(1).getNome()));
         lblInfoProcessosUsoMemoria2.setText(String.format("Uso de memória: %.2f", processosLabel.get(1).getUsoMemoria()));
         lblInfoProcessosUsoCPU2.setText(String.format("Uso da CPU: %.2f", processosLabel.get(1).getUsoCpu()));
-        
+
         lblInfoProcessosNome8.setText(String.format("Nome: %s", processosLabel.get(2).getNome()));
         lblInfoProcessosUsoMemoria3.setText(String.format("Uso de memória: %.2f", processosLabel.get(2).getUsoMemoria()));
         lblInfoProcessosUsoCPU3.setText(String.format("Uso da CPU: %.2f", processosLabel.get(2).getUsoCpu()));
-        
+
         lblInfoProcessosNome4.setText(String.format("Nome: %s", processosLabel.get(3).getNome()));
         lblInfoProcessosUsoMemoria4.setText(String.format("Uso de memória: %.2f", processosLabel.get(3).getUsoMemoria()));
         lblInfoProcessosUsoCPU4.setText(String.format("Uso da CPU: %.2f", processosLabel.get(3).getUsoCpu()));
-        
+
         lblInfoProcessosNome5.setText(String.format("Nome: %s", processosLabel.get(4).getNome()));
         lblInfoProcessosUsoMemoria5.setText(String.format("Uso de memória: %.2f", processosLabel.get(4).getUsoMemoria()));
         lblInfoProcessosUsoCPU5.setText(String.format("Uso da CPU: %.2f", processosLabel.get(4).getUsoCpu()));
-        
+
         lblInfoProcessosNome6.setText(String.format("Nome: %s", processosLabel.get(5).getNome()));
         lblInfoProcessosUsoMemoria6.setText(String.format("Uso de memória: %.2f", processosLabel.get(5).getUsoMemoria()));
         lblInfoProcessosUsoCPU6.setText(String.format("Uso da CPU: %.2f", processosLabel.get(5).getUsoCpu()));
+
     }
+
+    public void inserirDados() {
+        Integer intervalo = freqAlerta * 1000;
+        Processador processador = looca.getProcessador();
+        String usoProcessador = String.format("%.0f", processador.getUso());
+
+        Memoria memoria = looca.getMemoria();
+        Double memoriaEmUso = memoria.getEmUso() / 1073741824.0;
+        Double memoriaTotal = memoria.getTotal() / 1073741824.0;
+        Double porcentagemRam = memoriaEmUso * 100 / memoriaTotal;
+        String porcentagemRamFinal = String.format("%.0f", porcentagemRam);
+
+        DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
+        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(1).getDisponivel() / 1073741824.0;
+        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(1).getTotal() / 1073741824.0;
+        Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
+        String porcentagemMemoriaMassaFinal = String.format("%.0f", porcentagemMemoriaMassa);
+
+        String statusCPU;
+        String statusRam;
+        String statusHd;
+        if (cpuAlerta < processador.getUso()) {
+            statusCPU = "Saudavel";
+        } else if (cpuCritico < processador.getUso()) {
+            statusCPU = "Alerta";
+        } else {
+            statusCPU = "Critico";
+        }
+
+        if (ramAlerta < porcentagemRam) {
+            statusRam = "Saudavel";
+        } else if (ramCritico < porcentagemRam) {
+            statusRam = "Alerta";
+        } else {
+            statusRam = "Critico";
+        }
+
+        if (hdAlerta < porcentagemMemoriaMassa) {
+            statusHd = "Saudavel";
+        } else if (hdAlerta < porcentagemMemoriaMassa) {
+            statusHd = "Alerta";
+        } else {
+            statusHd = "Critico";
+        }
+
+        System.out.println("fkTotem");
+        System.out.println(fkTotem);
+        System.out.println(statusCPU);
+        System.out.println(statusRam);
+        System.out.println(statusHd);
+        System.out.println(porcentagemMemoriaMassaFinal);
+        System.out.println(porcentagemMemoriaMassa);
+        System.out.println(memoriaMassaDisponivel);
+        System.out.println(memoriaMassaTotal);
+        System.out.println(intervalo);
+        
+        db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+        @Override
+        public void run() {
+            inserirDados();
+        }
+    }, 0, intervalo);
+
+    }
+
+    
+
 }

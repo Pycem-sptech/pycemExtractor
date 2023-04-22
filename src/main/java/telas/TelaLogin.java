@@ -154,23 +154,44 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
-        System.out.println(usuario);
-        System.out.println(senha);
-        System.out.println(db.selectLogin(usuario, senha));
         
-        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados();
+        Integer idTotem = db.selectIdTotem(usuario);
+        Integer freqAlerta = db.selectAlerta().getFreqAlerta();
+        Integer cpuAlerta = db.selectAlerta().getCpuAlerta();
+        Integer cpuCritico = db.selectAlerta().getCpuCritico();
+        Integer ramAlerta = db.selectAlerta().getRamAlerta();
+        Integer ramCritico = db.selectAlerta().getRamCritico();
+        Integer hdAlerta = db.selectAlerta().getHdAlerta();
+        Integer hdCritico = db.selectAlerta().getCpuCritico();
+        
+        System.out.println(idTotem);
+        System.out.println(freqAlerta);
+        System.out.println(cpuAlerta);
+        System.out.println(cpuCritico);
+        System.out.println(ramAlerta);
+        System.out.println(ramCritico);
+        System.out.println(hdAlerta);
+        System.out.println(hdCritico);
+        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados(idTotem,
+            freqAlerta,
+            cpuAlerta,
+            cpuCritico,
+            ramAlerta,
+            ramCritico,
+            hdAlerta,
+            hdCritico);
         TelaCadastroPrimeiraVez cadastroPrimeiraVez = new TelaCadastroPrimeiraVez(usuario);
         
         if(db.selectLogin(usuario, senha)){
             
             if (db.verificarCadastro(usuario)){
                 this.setVisible(false);
-                cadastroPrimeiraVez.setLocationRelativeTo(null);
-                cadastroPrimeiraVez.setVisible(true);
-            } else {
-                this.setVisible(false);
                 exibicaoDeDados.setLocationRelativeTo(null);
                 exibicaoDeDados.setVisible(true);
+            } else {
+                this.setVisible(false);
+                cadastroPrimeiraVez.setLocationRelativeTo(null);
+                cadastroPrimeiraVez.setVisible(true);
             }
             
             

@@ -12,7 +12,7 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.rede.RedeInterface;
 import com.github.britooo.looca.api.group.rede.RedeInterfaceGroup;
 import com.github.britooo.looca.api.util.Conversor;
-import eduardo.pycemjar.Database;
+import database.Database;
 import telas.Utilitarios;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -152,23 +152,30 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados();
-        
-        
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
-       
-        List<String> realizarLogin = db.realizarSelect(usuario, senha);
-        String usuarioSelect = realizarLogin.get(0);
-        String senhaSelect = realizarLogin.get(1);
+        System.out.println(usuario);
+        System.out.println(senha);
+        System.out.println(db.selectLogin(usuario, senha));
         
-        if(usuario.equals(usuarioSelect) && senha.equals(senhaSelect)){
-            this.setVisible(false);
-            exibicaoDeDados.setLocationRelativeTo(null);
-            exibicaoDeDados.setVisible(true);
+        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados();
+        TelaCadastroPrimeiraVez cadastroPrimeiraVez = new TelaCadastroPrimeiraVez(usuario);
+        
+        if(db.selectLogin(usuario, senha)){
+            
+            if (db.verificarCadastro(usuario)){
+                this.setVisible(false);
+                cadastroPrimeiraVez.setLocationRelativeTo(null);
+                cadastroPrimeiraVez.setVisible(true);
+            } else {
+                this.setVisible(false);
+                exibicaoDeDados.setLocationRelativeTo(null);
+                exibicaoDeDados.setVisible(true);
+            }
+            
             
         }else{
-
+            System.out.println("Login inválido!");
         }
         
 
@@ -177,7 +184,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void txtLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoginFocusGained
         if(txtLogin.getText().equals("Usuário")){
             txtLogin.setText("");
-            txtLogin.setForeground(new Color(183,183,183));
+            txtLogin.setForeground(new Color(000,000,000));
         }
     }//GEN-LAST:event_txtLoginFocusGained
 
@@ -191,7 +198,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
         if(txtSenha.getText().equals("Senha")){
             txtSenha.setText("");
-            txtSenha.setForeground(new Color(183,183,183));
+            txtSenha.setForeground(new Color(000,000,000));
         }
     }//GEN-LAST:event_txtSenhaFocusGained
 
@@ -320,6 +327,5 @@ public class TelaLogin extends javax.swing.JFrame {
             System.out.println(redeInterface);
         }
     }
-    
 
 }

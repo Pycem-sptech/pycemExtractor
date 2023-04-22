@@ -4,6 +4,11 @@
  */
 package telas;
 
+import database.Database;
+import database.Usuario;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 /**
  *
  * @author Usuário
@@ -11,14 +16,9 @@ package telas;
 public class Main {
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) {      
         TelaLogin login = new TelaLogin();  
         login.setLocationRelativeTo(null);
         login.setVisible(true);
-        
-        
-        
-        
-        
     }
 }

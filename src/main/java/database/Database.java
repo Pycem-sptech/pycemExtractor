@@ -64,17 +64,17 @@ public class Database {
             String ram,
             String tipoArmazenamento,
             String qtdArmazenamento,
-            String ipv4,
+            String ipv6,
             String macAdress){
         template.update(
                 "UPDATE [dbo].[totem] SET numeroSerie = ?, processador = ?, ram = ?, tipo_armazenamento = ?, qtd_armazenamento = ?, "
-                        + "ipv4 = ?, mac_address = ? WHERE usuario = ?;", 
+                        + "ipv6 = ?, mac_address = ? WHERE usuario = ?;", 
                 numeroSerie, 
                 processador, 
                 ram, 
                 tipoArmazenamento, 
                 qtdArmazenamento, 
-                ipv4, 
+                ipv6, 
                 macAdress,
                 usuario);
     

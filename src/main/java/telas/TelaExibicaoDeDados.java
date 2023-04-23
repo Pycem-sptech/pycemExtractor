@@ -648,8 +648,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         String porcentagemRamFinal = String.format("%.0f", porcentagemRam);
 
         DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(1).getDisponivel() / 1073741824.0;
-        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(1).getTotal() / 1073741824.0;
+        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(0).getDisponivel() / 1073741824.0;
+        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
         Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
         String porcentagemMemoriaMassaFinal = String.format("%.0f", porcentagemMemoriaMassa);
 

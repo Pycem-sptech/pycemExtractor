@@ -456,7 +456,7 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
         
         //Rede
         Rede rede = looca.getRede();
-        String redeIpv4 = String.format("%s", rede.getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0));
+        String redeIpv6 = String.format("%s", rede.getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv6().get(0));
         String redeMacAdress = String.format("%s", rede.getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoMac());
         
         String processadorID = lblProcessadorID.getText();
@@ -469,7 +469,7 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
         String memoriaMassaTamanho = lblMemoriaMassaTamanho.getText();
 
         
-        db.atualizarCadastro(usuario, processadorID, processadorNome, memoriaRAM, memoriaMassaTipo, memoriaMassaTamanho, redeIpv4, redeMacAdress);
+        db.atualizarCadastro(usuario, processadorID, processadorNome, memoriaRAM, memoriaMassaTipo, memoriaMassaTamanho, redeIpv6, redeMacAdress);
         
         this.setVisible(false);
         exibicaoDeDados.setLocationRelativeTo(null);

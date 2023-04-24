@@ -519,7 +519,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     public void inserirDados() {
         
         Processador processador = looca.getProcessador();
-        String usoProcessador = String.format("%.0f", processador.getUso() * processador.getNumeroCpusLogicas());
+        String usoProcessador = String.format("%.0f", processador.getUso());
 
         Memoria memoria = looca.getMemoria();
         Double memoriaEmUso = memoria.getEmUso() / 1073741824.0;

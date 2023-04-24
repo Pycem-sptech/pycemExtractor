@@ -25,10 +25,14 @@ public class Database {
                 new BeanPropertyRowMapper<Totem>(Totem.class), usuario);
         return totemListado.getIdTotem();
     }
+   
     
-    public Alerta selectAlerta() {
-        Alerta alerta = template.queryForObject("SELECT * FROM [dbo].[alerta] WHERE fkEmpresa = ?;",
-                new BeanPropertyRowMapper<Alerta>(Alerta.class), 100);
+    public Alerta selectAlerta(String usuario) {
+        Alerta alerta = template.queryForObject(
+                "SELECT * FROM [dbo].[alerta] WHERE fkEmpresa = (select unidade.fkEmpresa from totem " +
+                "join unidade on unidade.idUnidade = totem.fkUnidade " +
+                "join empresa on unidade.fkEmpresa = empresa.idEmpresa where usuario = ?);",
+                new BeanPropertyRowMapper<Alerta>(Alerta.class), usuario);
         return alerta;
     }
     
@@ -90,7 +94,7 @@ public class Database {
             Integer fkTotem
     ){
         template.update("INSERT INTO [dbo].[registro](uso_processador, uso_ram, uso_hd, cpu_status, ram_status, hd_status, data_registro, fkTotem) "
-                + "VALUES (?, ?, ?, ?, ?, ?, getDate(), ?)",
+                + "VALUES (?, ?, ?, ?, ?, ?, getDate(), ?);",
                 usoProcessador,
                 usoRam,
                 usoHd,

@@ -58,7 +58,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>telas.TelaLogin</mainClass> 
+                            <mainClass>telas.Main</mainClass> 
                         </manifest>
                     </archive>
                 </configuration>

@@ -438,13 +438,13 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
     //Cadastrar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Integer idTotem = db.selectIdTotem(usuario);
-        Integer freqAlerta = db.selectAlerta().getFreqAlerta();
-        Integer cpuAlerta = db.selectAlerta().getCpuAlerta();
-        Integer cpuCritico = db.selectAlerta().getCpuCritico();
-        Integer ramAlerta = db.selectAlerta().getRamAlerta();
-        Integer ramCritico = db.selectAlerta().getRamCritico();
-        Integer hdAlerta = db.selectAlerta().getHdAlerta();
-        Integer hdCritico = db.selectAlerta().getCpuCritico();
+        Integer freqAlerta = db.selectAlerta(usuario).getFreqAlerta();
+        Integer cpuAlerta = db.selectAlerta(usuario).getCpuAlerta();
+        Integer cpuCritico = db.selectAlerta(usuario).getCpuCritico();
+        Integer ramAlerta = db.selectAlerta(usuario).getRamAlerta();
+        Integer ramCritico = db.selectAlerta(usuario).getRamCritico();
+        Integer hdAlerta = db.selectAlerta(usuario).getHdAlerta();
+        Integer hdCritico = db.selectAlerta(usuario).getCpuCritico();
         TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados(idTotem,
             freqAlerta,
             cpuAlerta,

@@ -156,22 +156,15 @@ public class TelaLogin extends javax.swing.JFrame {
         String senha = txtSenha.getText();
         
         Integer idTotem = db.selectIdTotem(usuario);
-        Integer freqAlerta = db.selectAlerta().getFreqAlerta();
-        Integer cpuAlerta = db.selectAlerta().getCpuAlerta();
-        Integer cpuCritico = db.selectAlerta().getCpuCritico();
-        Integer ramAlerta = db.selectAlerta().getRamAlerta();
-        Integer ramCritico = db.selectAlerta().getRamCritico();
-        Integer hdAlerta = db.selectAlerta().getHdAlerta();
-        Integer hdCritico = db.selectAlerta().getCpuCritico();
+        Integer freqAlerta = db.selectAlerta(usuario).getFreqAlerta();
+        Integer cpuAlerta = db.selectAlerta(usuario).getCpuAlerta();
+        Integer cpuCritico = db.selectAlerta(usuario).getCpuCritico();
+        Integer ramAlerta = db.selectAlerta(usuario).getRamAlerta();
+        Integer ramCritico = db.selectAlerta(usuario).getRamCritico();
+        Integer hdAlerta = db.selectAlerta(usuario).getHdAlerta();
+        Integer hdCritico = db.selectAlerta(usuario).getCpuCritico();
         
-        System.out.println(idTotem);
-        System.out.println(freqAlerta);
-        System.out.println(cpuAlerta);
-        System.out.println(cpuCritico);
-        System.out.println(ramAlerta);
-        System.out.println(ramCritico);
-        System.out.println(hdAlerta);
-        System.out.println(hdCritico);
+        
         TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados(idTotem,
             freqAlerta,
             cpuAlerta,
@@ -274,79 +267,4 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
-    
-    private void colocarIcone() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/Py.png")));
-    }
-    
-    private void mostrarInformacoes(){
-        System.out.println("---------------------------------");
-        System.out.println("|                               |");
-        System.out.println("| Bem-vindo ao Pycem Extractor! |");
-        System.out.println("|                               |");
-        System.out.println("---------------------------------");
-        System.out.println("");
-        Integer numeroEscolhido;
-        do {            
-            System.out.println("1 - Ver informações do processador \n"
-                    + "2 - Ver informações da memória RAM \n"
-                    + "3 - Ver informações da memória de massa \n"
-                    + "4 - Ver informações de rede\n"
-                    + "0 - Sair");
-            numeroEscolhido = sc.nextInt();
-            
-            
-            switch(numeroEscolhido){
-                case 1:
-                    exibirProcessador();
-                    break;
-                case 2:
-                    exibirMemoriaRAM();
-                    break;
-                case 3:
-                    exibirMemoriaDeMassa();
-                    break;
-                case 4:
-                    exibirInformacoesDeRede();
-                    break;
-            }
-            
-        } while (numeroEscolhido != 0);
-    }
-    
-    public void exibirProcessador(){
-        System.out.println("");
-        Processador processador = looca.getProcessador();
-            System.out.println(processador);  
-    }
-    
-    public void exibirMemoriaRAM(){
-        System.out.println("");
-        Memoria memoria = looca.getMemoria();
-        System.out.println("Memória RAM:");
-        System.out.println(memoria);
-        
-    }
-    
-    public void exibirMemoriaDeMassa(){
-        DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-
-        List<Disco> discos = grupoDeDiscos.getDiscos();
-        System.out.println("");
-        System.out.println("Memória de Massa:");
-        for (Disco disco : discos) {
-            System.out.println(disco);
-            
-        }
-        
-    }
-    
-    public void exibirInformacoesDeRede(){
-        RedeInterfaceGroup grupoDeRede = looca.getRede().getGrupoDeInterfaces();
-        List<RedeInterface> redeInterfaces = grupoDeRede.getInterfaces();
-        for (RedeInterface redeInterface : redeInterfaces) {
-            System.out.println(redeInterface);
-        }
-    }
-
 }

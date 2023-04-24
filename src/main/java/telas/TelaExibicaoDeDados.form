@@ -73,54 +73,28 @@
                                   <Component id="lblInfoRAMDisponivel" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="lblInfoProcessosUsoCPU" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblInfoProcessosNome" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblInfoProcessosUsoMemoria" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
-                                  <Component id="lblInfoProcessosNome3" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="lblInfoProcessos4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblInfoProcessosUsoMemoria4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblInfoProcessosNome4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblInfoProcessosUsoCPU4" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="lblInfoProcessosUsoCPU" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblInfoProcessosNome" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblInfoProcessosUsoMemoria" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                              <Component id="lblInfoProcessosNome3" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblInfoProcessosUsoCPU2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblInfoProcessosNome2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoMemoria2" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
-                                      <Component id="lblInfoProcessos2" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblInfoProcessos3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoMemoria3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblInfoProcessosNome8" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoCPU3" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblInfoProcessosUsoCPU2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblInfoProcessosNome2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblInfoProcessosUsoMemoria2" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                                  <Component id="lblInfoProcessos2" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblInfoProcessos6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoMemoria6" alignment="0" pref="123" max="32767" attributes="0"/>
-                                      <Component id="lblInfoProcessosNome6" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblInfoProcessos5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoMemoria5" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblInfoProcessosNome5" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoCPU5" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblInfoProcessosUsoCPU6" min="-2" pref="163" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblInfoProcessos3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblInfoProcessosUsoMemoria3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblInfoProcessosNome8" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblInfoProcessosUsoCPU3" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -181,80 +155,40 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblInfoProcessosNome3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblInfoProcessosNome3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblInfoRAMTotal" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblInfoProcessosNome" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoMemoria" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblInfoProcessosUsoCPU" pref="27" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblInfoProcessos4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosNome4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoMemoria4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoCPU4" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblInfoRAMTotal" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="lblInfoProcessos2" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblInfoProcessosNome" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosNome2" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblInfoProcessosUsoMemoria" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoMemoria2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoCPU2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblInfoProcessos5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosNome5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoMemoria5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoCPU5" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblInfoProcessosUsoCPU" pref="27" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lblInfoProcessos3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosNome8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoMemoria3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoCPU3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblInfoProcessos6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosNome6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoMemoria6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblInfoProcessosUsoCPU6" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="lblInfoProcessos2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoProcessosNome2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoProcessosUsoMemoria2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoProcessosUsoCPU2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoProcessos3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoProcessosNome8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoProcessosUsoMemoria3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoProcessosUsoCPU3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       <Component id="btnProcessador" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
@@ -550,111 +484,6 @@
           <Font name="Segoe UI" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Processo 3:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosNome4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosUsoMemoria4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Uso de mem&#xf3;ria:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosUsoCPU4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Uso de CPU:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessos4">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Processo 4:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosUsoMemoria5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Uso de mem&#xf3;ria:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosUsoCPU5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Uso de CPU:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessos5">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Processo 5:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosNome5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosUsoCPU6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Uso de CPU:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessos6">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Processo 6:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosUsoMemoria6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Uso de mem&#xf3;ria:"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[200, 500]"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblInfoProcessosNome6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome:"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 500]"/>
         </Property>

@@ -104,4 +104,14 @@ public class Database {
                 fkTotem);
     
     }
+    
+    public void ligarMaquina(String usuario){
+        template.update(
+                "UPDATE totem SET estado = 'Disponivel' where usuario = ?", usuario);
+    }
+    
+    public void desligarMaquina(String usuario){
+        template.update(
+                "UPDATE totem SET estado = 'Desligado' WHERE usuario = ?", usuario);
+    }
 }

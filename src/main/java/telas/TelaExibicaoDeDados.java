@@ -31,6 +31,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     Looca looca = new Looca();
     Utilitarios util = new Utilitarios();
     Database db = new Database();
+    private String usuario;
     private Integer fkTotem;
     private Integer freqAlerta;
     private Integer cpuAlerta;
@@ -49,6 +50,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }
 
     public TelaExibicaoDeDados(
+            String usuario,
             Integer fkTotem,
             Integer freqAlerta,
             Integer cpuAlerta,
@@ -59,6 +61,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             Integer hdCritico) {
         initComponents();
         util.InserirIcone(this);
+        this.usuario = usuario;
         this.fkTotem = fkTotem;
         this.freqAlerta = freqAlerta;
         this.cpuAlerta = cpuAlerta;
@@ -113,6 +116,11 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         lblInfoProcessos3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Processador:");
@@ -390,6 +398,10 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         }
     }, 0, intervalo);
     }//GEN-LAST:event_btnProcessadorActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        db.desligarMaquina(usuario);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -445,7 +445,8 @@ public class TelaCadastroPrimeiraVez extends javax.swing.JFrame {
         Integer ramCritico = db.selectAlerta(usuario).getRamCritico();
         Integer hdAlerta = db.selectAlerta(usuario).getHdAlerta();
         Integer hdCritico = db.selectAlerta(usuario).getCpuCritico();
-        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados(idTotem,
+        TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados(usuario,
+                idTotem,
             freqAlerta,
             cpuAlerta,
             cpuCritico,

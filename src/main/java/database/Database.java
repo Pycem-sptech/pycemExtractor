@@ -105,13 +105,17 @@ public class Database {
     
     }
     
-    public void ligarMaquina(String usuario){
+    public void ligarMaquina(String usuario, Integer idTotem){
         template.update(
                 "UPDATE totem SET estado = 'Disponivel' where usuario = ?", usuario);
+        template.update(
+                "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Disponivel', getDate(), ?) ", idTotem);
     }
     
-    public void desligarMaquina(String usuario){
+    public void desligarMaquina(String usuario, Integer idTotem){
         template.update(
                 "UPDATE totem SET estado = 'Desligado' WHERE usuario = ?", usuario);
+        template.update(
+                "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Desligado', getDate(), ?) ", idTotem);
     }
 }

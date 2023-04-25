@@ -155,7 +155,7 @@ public class TelaLogin extends javax.swing.JFrame {
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
         
-        db.ligarMaquina(usuario);
+        
         Integer idTotem = db.selectIdTotem(usuario);
         Integer freqAlerta = db.selectAlerta(usuario).getFreqAlerta();
         Integer cpuAlerta = db.selectAlerta(usuario).getCpuAlerta();
@@ -164,7 +164,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Integer ramCritico = db.selectAlerta(usuario).getRamCritico();
         Integer hdAlerta = db.selectAlerta(usuario).getHdAlerta();
         Integer hdCritico = db.selectAlerta(usuario).getCpuCritico();
-        
+        db.ligarMaquina(usuario, idTotem);
         
         TelaExibicaoDeDados exibicaoDeDados = new TelaExibicaoDeDados(usuario,
                 idTotem,

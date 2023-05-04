@@ -42,7 +42,6 @@ public class Database {
                 new BeanPropertyRowMapper<Totem>(Totem.class), usuario, senha);
         
         if (totemListado.getUsuario().equals(usuario)){
-            System.out.println(totemListado.getUsuario());
             return true;
         } else {
             return false;

@@ -13,6 +13,7 @@ import com.github.britooo.looca.api.group.rede.RedeInterface;
 import com.github.britooo.looca.api.group.rede.RedeInterfaceGroup;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
+import database.Log;
 import telas.Utilitarios;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -27,6 +28,7 @@ public class TelaLogin extends javax.swing.JFrame {
     Utilitarios util = new Utilitarios();
     Scanner sc = new Scanner(System.in);
     Looca looca = new Looca();
+    Log log = new Log();
     
     /**
      * Creates new form TelaLogin
@@ -183,10 +185,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 this.setVisible(false);
                 exibicaoDeDados.setLocationRelativeTo(null);
                 exibicaoDeDados.setVisible(true);
+                log.login(true, usuario);
             } else {
                 this.setVisible(false);
                 cadastroPrimeiraVez.setLocationRelativeTo(null);
                 cadastroPrimeiraVez.setVisible(true);
+                log.login(false, usuario);
             }
             
             

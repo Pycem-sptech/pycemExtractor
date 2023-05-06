@@ -15,6 +15,7 @@ import com.github.britooo.looca.api.group.servicos.Servico;
 import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
+import database.Log;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,6 +32,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     Looca looca = new Looca();
     Utilitarios util = new Utilitarios();
     Database db = new Database();
+    Log log = new Log();
+    
     private String usuario;
     private Integer fkTotem;
     private Integer freqAlerta;
@@ -289,6 +292,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         @Override
         public void run() {
             inserirDados();
+            
         }
     }, 0, intervalo);
     }//GEN-LAST:event_btnProcessadorActionPerformed
@@ -382,7 +386,6 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             lblInfoMemoriaMassaNome.setText(String.format("Nome: %s", disco.getNome()));
             lblInfoMemoriaMassaModelo.setText(String.format("Modelo: %s", disco.getModelo()));
             lblInfoMemoriaMassaTamanho.setText(String.format("Tamanho: %s", Conversor.formatarBytes(disco.getTamanho())));
-
         }
     }
 
@@ -441,6 +444,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         System.out.println(memoriaMassaTotal);
         
         db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
+        log.dadosProcessadorRamMassa(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal);
 
     }
     

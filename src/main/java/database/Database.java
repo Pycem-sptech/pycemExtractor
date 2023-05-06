@@ -10,6 +10,8 @@ public class Database {
 
     private BasicDataSource dataSource;
     private JdbcTemplate template;
+    
+    Log log = new Log();
 
     public Database() {
         dataSource = new BasicDataSource();
@@ -110,6 +112,8 @@ public class Database {
                 "UPDATE totem SET estado = 'Disponivel' where usuario = ?", usuario);
         template.update(
                 "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Disponivel', getDate(), ?) ", idTotem);
+        log.ligarDelisgarMaquina(true, usuario, idTotem);
+        
     }
     
     public void desligarMaquina(String usuario, Integer idTotem){
@@ -117,5 +121,6 @@ public class Database {
                 "UPDATE totem SET estado = 'Desligado' WHERE usuario = ?", usuario);
         template.update(
                 "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Desligado', getDate(), ?) ", idTotem);
+        log.ligarDelisgarMaquina(false, usuario, idTotem);
     }
 }

@@ -12,6 +12,7 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.rede.Rede;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
+import database.DatabaseMySQL;
 import database.Usuario;
 import java.util.List;
 import java.util.Scanner;
@@ -31,6 +32,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Looca looca = new Looca();
         CLI cli = new CLI(looca);
+        DatabaseMySQL dbMysql = new DatabaseMySQL(); 
 
         String respostaInterfaceGrafica;
         do {
@@ -74,7 +76,13 @@ public class Main {
                     hdAlerta,
                     hdCritico);
             TelaCadastroPrimeiraVez cadastroPrimeiraVez = new TelaCadastroPrimeiraVez(usuario);
-
+            
+            if(dbMysql.selectLogin(usuario, senha)){
+                System.out.println("Logado no MySQL com sucesso!");
+            } else {
+                System.out.println("Falha ao logar na máquina");
+            }
+            
             if (db.selectLogin(usuario, senha)) {
 
                 if (db.verificarCadastro(usuario)) {

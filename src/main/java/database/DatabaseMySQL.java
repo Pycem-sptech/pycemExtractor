@@ -27,14 +27,17 @@ public class DatabaseMySQL {
     
     }
     
-    public Boolean selectLogin(String usuario, String senha) {
-        Totem totemListado = template.queryForObject("SELECT usuario, senha FROM totem WHERE usuario = ? AND senha = ?;",
-                new BeanPropertyRowMapper<Totem>(Totem.class), usuario, senha);
-        
-        if (totemListado.getUsuario().equals(usuario)){
-            return true;
-        } else {
-            return false;
-        }
+    
+    public void inserirDados(
+            String usoProcessador,
+            String usoRam,
+            String usoHd
+    ){
+        template.update("INSERT INTO registro(uso_processador, uso_ram, uso_hd, data_registro) "
+                + "VALUES (?, ?, ?, now());",
+                usoProcessador,
+                usoRam,
+                usoHd);
+    
     }
 }

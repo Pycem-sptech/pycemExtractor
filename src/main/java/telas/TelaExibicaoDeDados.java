@@ -15,6 +15,7 @@ import com.github.britooo.looca.api.group.servicos.Servico;
 import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
+import database.DatabaseMySQL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,6 +32,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     Looca looca = new Looca();
     Utilitarios util = new Utilitarios();
     Database db = new Database();
+    DatabaseMySQL dbMySQL = new DatabaseMySQL();
     private String usuario;
     private Integer fkTotem;
     private Integer freqAlerta;
@@ -387,7 +389,6 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }
 
     public void inserirDados() {
-        
         Processador processador = looca.getProcessador();
         String usoProcessador = String.format("%.0f", processador.getUso());
 
@@ -433,10 +434,12 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         System.out.println("Status da CPU: " + statusCPU);
         System.out.println("Status da Memória RAM: " + statusRam);
         System.out.println("Status do HD: " + statusHd);
-        System.out.println("Porcentagem de uso da Memória RAM: " + porcentagemMemoriaMassaFinal);
-        System.out.println("Porcentagem de uso da Memória de Massa: " + porcentagemMemoriaMassa);
+        System.out.println("Uso processador: " + usoProcessador + "%");
+        System.out.println("Porcentagem de uso da Memória RAM: " + porcentagemRamFinal + "%");
+        System.out.println("Porcentagem de uso da Memória de Massa: " + porcentagemMemoriaMassaFinal + "%");
         
         db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
+        dbMySQL.inserirDados(usoProcessador, porcentagemRamFinal, statusHd);
 
     }
     

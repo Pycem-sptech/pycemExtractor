@@ -31,7 +31,7 @@ public class Main {
         Database db = new Database();
         Scanner sc = new Scanner(System.in);
         Looca looca = new Looca();
-        CLI cli = new CLI(looca);
+        Dados dados = new Dados(looca);
         DatabaseMySQL dbMysql = new DatabaseMySQL(); 
 
         String respostaInterfaceGrafica;
@@ -54,7 +54,7 @@ public class Main {
             String usuario = sc.nextLine();
             System.out.println("Senha:");
             String senha = sc.nextLine();
-            System.out.println("Efetuando Login...");
+            System.out.println("Efetuando login...");
 
             Integer idTotem = db.selectIdTotem(usuario);
             Integer freqAlerta = db.selectAlerta(usuario).getFreqAlerta();
@@ -77,18 +77,13 @@ public class Main {
                     hdCritico);
             TelaCadastroPrimeiraVez cadastroPrimeiraVez = new TelaCadastroPrimeiraVez(usuario);
             
-            if(dbMysql.selectLogin(usuario, senha)){
-                System.out.println("Logado no MySQL com sucesso!");
-            } else {
-                System.out.println("Falha ao logar na máquina");
-            }
+            
             
             if (db.selectLogin(usuario, senha)) {
 
                 if (db.verificarCadastro(usuario)) {
                     // Caso o cadastro não seja a primeira vez
-
-                    cli.capturarDados(freqAlerta, exibicaoDeDados);
+                    dados.inserirDados(freqAlerta, exibicaoDeDados);
 
                 } else {
                     // Caso o cadastro seja a primeira vez
@@ -105,30 +100,30 @@ public class Main {
 
                     if (respostaPreenchimentoAutomatico.equals("s")) {
                         //Rede
-                        String redeIpv6 = cli.getRedeIpv6();
-                        String redeMacAdress = cli.getRedeMacAdress();
+                        String redeIpv6 = dados.getRedeIpv6();
+                        String redeMacAdress = dados.getRedeMacAdress();
                         
                         System.out.println("ID Processador: ");
-                        String processadorID = cli.getProcessadorID();
+                        String processadorID = dados.getProcessadorID();
                         System.out.println(processadorID);
                         System.out.println("Nome Processador: ");
-                        String processadorNome = cli.getProcessadorNome();
+                        String processadorNome = dados.getProcessadorNome();
                         System.out.println(processadorNome);
                         System.out.println("CPU Físicas");
-                        String processadorCPUFisica = cli.getProcessadorCPUFisica();
+                        String processadorCPUFisica = dados.getProcessadorCPUFisica();
                         System.out.println(processadorCPUFisica);
                         System.out.println("CPU Lógicas");
-                        String processadorCPULogica = cli.getProcessadorCPULogica();
+                        String processadorCPULogica = dados.getProcessadorCPULogica();
                         System.out.println(processadorCPULogica);
                         System.out.println("Memória RAM(Quantidade):");
-                        String memoriaRAM = cli.getMemoriaRAM();
+                        String memoriaRAM = dados.getMemoriaRAM();
                         System.out.println(memoriaRAM);
                         System.out.println("Memória de Massa:");
                         System.out.println("Nome: ");
-                        String memoriaMassa = cli.getMemoriaMassaNome();
+                        String memoriaMassa = dados.getMemoriaMassaNome();
                         System.out.println(memoriaMassa);
                         System.out.println("Tamanho: ");
-                        String memoriaMassaTamanho = cli.getMemoriaMassaTamanho();
+                        String memoriaMassaTamanho = dados.getMemoriaMassaTamanho();
                         System.out.println(memoriaMassaTamanho);
                         System.out.println("Tipo(SDD ou HD): ");
                         String memoriaMassaTipo = sc.nextLine();
@@ -136,12 +131,12 @@ public class Main {
                         // Inserindo as informações no banco de dados
                         db.atualizarCadastro(usuario, processadorID, processadorNome, memoriaRAM, memoriaMassaTipo, memoriaMassaTamanho, redeIpv6, redeMacAdress);
                         System.out.println("Cadastro realizado com sucesso");
-                        cli.capturarDados(freqAlerta, exibicaoDeDados);
+                        dados.inserirDados(freqAlerta, exibicaoDeDados);
 
                     } else if (respostaPreenchimentoAutomatico.equals("n")) {
                         //Rede
-                        String redeIpv6 = cli.getRedeIpv6();
-                        String redeMacAdress = cli.getRedeMacAdress();
+                        String redeIpv6 = dados.getRedeIpv6();
+                        String redeMacAdress = dados.getRedeMacAdress();
                         
                         System.out.println("ID Processador: ");
                         String processadorID = sc.nextLine();
@@ -164,7 +159,7 @@ public class Main {
                         // Inserindo as informações no banco de dados
                         db.atualizarCadastro(usuario, processadorID, processadorNome, memoriaRAM, memoriaMassaTipo, memoriaMassaTamanho, redeIpv6, redeMacAdress);
                         System.out.println("Cadastro realizado com sucesso");
-                        cli.capturarDados(freqAlerta, exibicaoDeDados);
+                        dados.inserirDados(freqAlerta, exibicaoDeDados);
                     }
 
                 }

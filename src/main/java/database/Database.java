@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import telas.Log;
 
 public class Database {
 
     private BasicDataSource dataSource;
     private JdbcTemplate template;
-    
-    Log log = new Log();
 
     public Database() {
         dataSource = new BasicDataSource();
@@ -108,19 +107,21 @@ public class Database {
     }
     
     public void ligarMaquina(String usuario, Integer idTotem){
+
         template.update(
                 "UPDATE totem SET estado = 'Disponivel' where usuario = ?", usuario);
         template.update(
                 "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Disponivel', getDate(), ?) ", idTotem);
-        log.ligarDelisgarMaquina(true, usuario, idTotem);
+     
         
     }
     
     public void desligarMaquina(String usuario, Integer idTotem){
+      
         template.update(
                 "UPDATE totem SET estado = 'Desligado' WHERE usuario = ?", usuario);
         template.update(
                 "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Desligado', getDate(), ?) ", idTotem);
-        log.ligarDelisgarMaquina(false, usuario, idTotem);
+       
     }
 }

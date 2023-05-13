@@ -15,7 +15,6 @@ import com.github.britooo.looca.api.group.servicos.Servico;
 import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
-import database.Log;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

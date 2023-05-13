@@ -13,12 +13,12 @@ import com.github.britooo.looca.api.group.rede.RedeInterface;
 import com.github.britooo.looca.api.group.rede.RedeInterfaceGroup;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
-import database.Log;
 import telas.Utilitarios;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuário
@@ -28,7 +28,7 @@ public class TelaLogin extends javax.swing.JFrame {
     Utilitarios util = new Utilitarios();
     Scanner sc = new Scanner(System.in);
     Looca looca = new Looca();
-    Log log = new Log();
+    
     
     /**
      * Creates new form TelaLogin
@@ -154,9 +154,12 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        Log log = new Log();
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
         
+        log.setLoginusuario(usuario);
+        JOptionPane.showMessageDialog(null, log.gravaLog());
         
         Integer idTotem = db.selectIdTotem(usuario);
         Integer freqAlerta = db.selectAlerta(usuario).getFreqAlerta();
@@ -185,12 +188,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 this.setVisible(false);
                 exibicaoDeDados.setLocationRelativeTo(null);
                 exibicaoDeDados.setVisible(true);
-                log.login(true, usuario);
+                
             } else {
                 this.setVisible(false);
                 cadastroPrimeiraVez.setLocationRelativeTo(null);
                 cadastroPrimeiraVez.setVisible(true);
-                log.login(false, usuario);
+                
             }
             
             

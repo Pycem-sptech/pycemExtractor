@@ -443,8 +443,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         System.out.println(memoriaMassaTotal);
         
         db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
-        log.dadosProcessadorRamMassa(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal);
-
+        
     }
     
     

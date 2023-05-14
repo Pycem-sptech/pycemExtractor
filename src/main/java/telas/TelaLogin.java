@@ -28,20 +28,22 @@ public class TelaLogin extends javax.swing.JFrame {
     Utilitarios util = new Utilitarios();
     Scanner sc = new Scanner(System.in);
     Looca looca = new Looca();
-    
-    
+   
+   
+   
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
+        Log log= new Log();
         initComponents();
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.WHITE);
         Utilitarios util = new Utilitarios();
         util.InserirIcone(this);
-        
+        log.escreverTexto("log.txt", "login Realizado");
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -154,12 +156,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        Log log = new Log();
+        
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
-        
-        log.setLoginusuario(usuario);
-        JOptionPane.showMessageDialog(null, log.gravaLog());
         
         Integer idTotem = db.selectIdTotem(usuario);
         Integer freqAlerta = db.selectAlerta(usuario).getFreqAlerta();
@@ -266,6 +265,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel boxLogin;

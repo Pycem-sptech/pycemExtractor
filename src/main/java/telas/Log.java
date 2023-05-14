@@ -4,11 +4,28 @@
  */
 package telas;
 
-import database.Database;
+import com.github.britooo.looca.api.core.Looca;
+import com.github.britooo.looca.api.group.discos.Disco;
+import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import com.github.britooo.looca.api.group.memoria.Memoria;
+import com.github.britooo.looca.api.group.processador.Processador;
+import com.github.britooo.looca.api.group.processos.Processo;
+import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
+import com.github.britooo.looca.api.group.servicos.Servico;
+import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
+import com.github.britooo.looca.api.group.sistema.Sistema;
+import com.github.britooo.looca.api.util.Conversor;
+
+
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.EmptyStackException;
 import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,73 +35,53 @@ import java.util.logging.Logger;
  * @author yara
  */
 public class Log {
-    Database db = new Database();
-    
-     LocalDateTime dataHoraAtual = LocalDateTime.now();
-     String ldmaquina;
-     String loginUsuario;
-     String dadosProcessador;
+  
+        public static void escreverTexto(String pCaminhoArquivo, String pTextoEscrever){
 
-    public String getLoginusuario() {
-        return loginUsuario;
-    }
+            Conversor conversor = new Conversor();
 
-    public void setLoginusuario(String loginusuario) {
-        this.loginUsuario = loginusuario;
-    }
-      
-     
-     
-     
-    public void ligarDelisgarMaquina(Boolean estado, String nome, Integer idTotem){
-        String logGravado = "";
-        if(estado == true){
-          logGravado = String.format("A Maquina %s com o id %s Ligou as",nome, idTotem);
-        }else if(estado == false){
-          logGravado = String.format("A Maquina %s com o id %s Desligou as",nome, idTotem);
+            Sistema sistema = new Sistema();
+            Memoria memoria = new Memoria();
+            Processador processador = new Processador();
+            //DiscosGroup discosGroup = new DiscosGroup();
+            //ProcessosGroup processosGroup = new ProcessosGroup();
+
+            String usoProcessador = processador.getUso().toString();
+            String usoMemoria = conversor.formatarBytes(memoria.getEmUso());
+            String memoriaTotal = conversor.formatarBytes(memoria.getTotal());
+            //String tamanhoDisco = conversor.formatarBytes(discosGroup.getTamanhoTotal());
+            String sistemaOperacional = sistema.getSistemaOperacional();
+            String arquitetura = sistema.getArquitetura().toString();
+            String fabricante = sistema.getFabricante();
+            String tempoAtividade = conversor.formatarSegundosDecorridos(sistema.getTempoDeAtividade());
+            //String totalProcessos = processosGroup.getTotalProcessos().toString();
+
+            try(
+
+                    FileWriter criadorDeArquivos = new FileWriter(pCaminhoArquivo, true);
+                    BufferedWriter buffer = new BufferedWriter(criadorDeArquivos);
+                    PrintWriter escritorDeArquivos = new PrintWriter(buffer);){
+
+
+
+                escritorDeArquivos.append(pTextoEscrever.toString() +"; " +
+                        InetAddress.getLocalHost().getHostName() + "; " +
+                        InetAddress.getLocalHost().getHostAddress() + "; " +
+                        usoProcessador +"; " +
+                        usoMemoria +"; " +
+                        memoriaTotal +"; " +
+                        //tamanhoDisco +"; " +
+                        sistemaOperacional +"; " +
+                        arquitetura +"; " +
+                        fabricante +"; " +
+                        tempoAtividade +"; ");
+                        //totalProcessos);
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
-        ldmaquina = logGravado;
         
-    }
-    
-    
         
-    
-    
-    public void dadosProcessadorRamMassa(String processador, String ram, String massa){
-        String logGravado = "";
-        logGravado= String.format("Os Ultimos dados"
-                + "\nProcessador: %s, Memoria Ram: %s, Memoria em massa: %s, Data e hora:",
-                processador, ram, massa);
-        dadosProcessador = logGravado;
-      
-    }
-    
-      public String gravaLog(){ 
-        
-        try {
-            FileWriter arq = new FileWriter("log.txt", true);
-             PrintWriter lerArq = new PrintWriter(arq);
-              
-              //lerArq.println("Processador: " + this.dadosProcessador);
-              //lerArq.println("Maquina: " + this.ldmaquina);
-              lerArq.println("Usuario: " + this.loginUsuario);
-              //lerArq.println("Data" + this.dataHoraAtual);
-              //lerArq.println("asddddddddddd");
-              lerArq.flush();
-              lerArq.close();
-              arq.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return "salvo";
-            
-    }
-
-    @Override
-    public String toString() {
-        return "Log{" + "db=" + db + ", dataHoraAtual=" + dataHoraAtual + ", ldmaquina=" + ldmaquina + ", loginusuario=" + loginUsuario + ", dadosProcessador=" + dadosProcessador + '}';
-    }
-
     
 }

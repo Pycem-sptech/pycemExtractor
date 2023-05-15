@@ -18,6 +18,7 @@ import com.github.britooo.looca.api.util.Conversor;
 
 
 
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -36,20 +37,18 @@ import java.util.logging.Logger;
  */
 public class Log {
   
-        public static void escreverTexto(String pCaminhoArquivo, String pTextoEscrever){
+        public static void escreverTexto( String pTextoEscrever){
 
             Conversor conversor = new Conversor();
-
+            
+            LocalDateTime  dataHoraAtual = LocalDateTime.now();
             Sistema sistema = new Sistema();
             Memoria memoria = new Memoria();
             Processador processador = new Processador();
-            //DiscosGroup discosGroup = new DiscosGroup();
-            //ProcessosGroup processosGroup = new ProcessosGroup();
-
+   
             String usoProcessador = processador.getUso().toString();
             String usoMemoria = conversor.formatarBytes(memoria.getEmUso());
             String memoriaTotal = conversor.formatarBytes(memoria.getTotal());
-            //String tamanhoDisco = conversor.formatarBytes(discosGroup.getTamanhoTotal());
             String sistemaOperacional = sistema.getSistemaOperacional();
             String arquitetura = sistema.getArquitetura().toString();
             String fabricante = sistema.getFabricante();
@@ -58,19 +57,17 @@ public class Log {
 
             try(
 
-                    FileWriter criadorDeArquivos = new FileWriter(pCaminhoArquivo, true);
+                    FileWriter criadorDeArquivos = new FileWriter("log.txt", true);
                     BufferedWriter buffer = new BufferedWriter(criadorDeArquivos);
                     PrintWriter escritorDeArquivos = new PrintWriter(buffer);){
-
-
-
-                escritorDeArquivos.append(pTextoEscrever.toString() +"; " +
+                
+                escritorDeArquivos.append(pTextoEscrever.toString() +
+                        dataHoraAtual + "; " +
                         InetAddress.getLocalHost().getHostName() + "; " +
                         InetAddress.getLocalHost().getHostAddress() + "; " +
                         usoProcessador +"; " +
                         usoMemoria +"; " +
                         memoriaTotal +"; " +
-                        //tamanhoDisco +"; " +
                         sistemaOperacional +"; " +
                         arquitetura +"; " +
                         fabricante +"; " +

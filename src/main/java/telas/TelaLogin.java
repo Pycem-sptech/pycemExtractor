@@ -35,13 +35,12 @@ public class TelaLogin extends javax.swing.JFrame {
      * Creates new form TelaLogin
      */
     public TelaLogin() {
-        Log log= new Log();
+        
         initComponents();
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.WHITE);
         Utilitarios util = new Utilitarios();
         util.InserirIcone(this);
-        log.escreverTexto("log.txt", "login Realizado");
     }
     
     /**
@@ -156,7 +155,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        
+        Log log= new Log();
         String usuario = txtLogin.getText();
         String senha = txtSenha.getText();
         
@@ -187,7 +186,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 this.setVisible(false);
                 exibicaoDeDados.setLocationRelativeTo(null);
                 exibicaoDeDados.setVisible(true);
-                
+                log.escreverTexto("Login Realizado\n");
             } else {
                 this.setVisible(false);
                 cadastroPrimeiraVez.setLocationRelativeTo(null);

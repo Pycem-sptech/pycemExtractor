@@ -16,11 +16,15 @@ import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
 import database.DatabaseMySQL;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import slack.PycemNotify;
 
 
 /**
@@ -28,11 +32,12 @@ import java.util.TimerTask;
  * @author Usuário
  */
 public class TelaExibicaoDeDados extends javax.swing.JFrame {
-
+  
     Looca looca = new Looca();
     Utilitarios util = new Utilitarios();
     Database db = new Database();
     DatabaseMySQL dbMySQL = new DatabaseMySQL();
+    PycemNotify slack = new PycemNotify();
     private String usuario;
     private Integer fkTotem;
     private Integer freqAlerta;
@@ -286,11 +291,23 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private void btnProcessadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessadorActionPerformed
         Integer intervalo = freqAlerta * 1000;
         exibirDados();
-        inserirDados();
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-        @Override
-        public void run() {
+        try {
             inserirDados();
+        } catch (IOException ex) {
+            Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        new Timer().scheduleAtFixedRate(new TimerTask() {  
+        @Override
+        public void run()  {
+            try {
+                inserirDados();
+            } catch (IOException ex) {
+                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }, 0, intervalo);
     }//GEN-LAST:event_btnProcessadorActionPerformed
@@ -388,7 +405,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         }
     }
 
-    public void inserirDados() {
+    public void inserirDados() throws IOException, InterruptedException {
         Processador processador = looca.getProcessador();
         String usoProcessador = String.format("%.0f", processador.getUso());
 
@@ -411,24 +428,33 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             statusCPU = "Saudavel";
         } else if (cpuCritico > processador.getUso()) {
             statusCPU = "Alerta";
+            slack.enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
         } else {
             statusCPU = "Critico";
+            slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na CPU considerado crítico,"
+                    + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
         }
 
         if (ramAlerta < porcentagemRam) {
             statusRam = "Saudavel";
         } else if (ramCritico > porcentagemRam) {
             statusRam = "Alerta";
+            slack.enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
         } else {
             statusRam = "Critico";
+            slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na RAM considerado crítico,"
+                    + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
         }
 
         if (hdAlerta < porcentagemMemoriaMassa) {
             statusHd = "Saudavel";
         } else if (hdAlerta > porcentagemMemoriaMassa) {
             statusHd = "Alerta";
+            slack.enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
         } else {
             statusHd = "Critico";
+            slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso no HD considerado crítico,"
+                    + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
         }
 
         System.out.println("Status da CPU: " + statusCPU);

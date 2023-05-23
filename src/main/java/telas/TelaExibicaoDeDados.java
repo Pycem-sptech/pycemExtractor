@@ -41,8 +41,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private String usuario;
     private Integer fkTotem;
     private Integer freqAlerta;
-    private Integer cpuAlerta;
-    private Integer cpuCritico;
+    private Integer cpuAlerta = 20;
+    private Integer cpuCritico = 50;
     private Integer ramAlerta;
     private Integer ramCritico;
     private Integer hdAlerta;
@@ -289,7 +289,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProcessadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessadorActionPerformed
-        Integer intervalo = freqAlerta * 1000;
+        Integer intervalo = freqAlerta != null ? freqAlerta : 5 * 1000;
         exibirDados();
         try {
             inserirDados();
@@ -298,7 +298,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         } catch (InterruptedException ex) {
             Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new Timer().scheduleAtFixedRate(new TimerTask() {  
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {  
         @Override
         public void run()  {
             try {
@@ -416,8 +417,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         String porcentagemRamFinal = String.format("%.0f", porcentagemRam);
 
         DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(1).getDisponivel() / 1073741824.0;
-        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(1).getTotal() / 1073741824.0;
+        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(0).getDisponivel() / 1073741824.0;
+        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
         Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
         String porcentagemMemoriaMassaFinal = String.format("%.0f", porcentagemMemoriaMassa);
 

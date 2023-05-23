@@ -76,13 +76,7 @@ public class Dados {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                try {
-                    exibicaoDeDados.inserirDados();
-                } catch (IOException ex) {
-                    Logger.getLogger(Dados.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Dados.class.getName()).log(Level.SEVERE, null, ex);
-                }
+               exibicaoDeDados.inserirDados();
                 System.out.println("");
             }
         }, 0, intervalo);

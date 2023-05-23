@@ -4,7 +4,6 @@
  */
 package slack;
 
-import com.github.britooo.looca.api.core.Looca;
 import java.io.IOException;
 import org.json.JSONObject;
 
@@ -13,7 +12,6 @@ import org.json.JSONObject;
  */
 public class PycemNotify {
     
-    Looca looca = new Looca();
     
     public void enviarNotificacao(String mensagem) throws IOException, InterruptedException{
         

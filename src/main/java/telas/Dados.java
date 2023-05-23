@@ -11,10 +11,13 @@ import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.rede.Rede;
 import com.github.britooo.looca.api.util.Conversor;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Dados {
     
@@ -73,7 +76,13 @@ public class Dados {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                exibicaoDeDados.inserirDados();
+                try {
+                    exibicaoDeDados.inserirDados();
+                } catch (IOException ex) {
+                    Logger.getLogger(Dados.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Dados.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 System.out.println("");
             }
         }, 0, intervalo);

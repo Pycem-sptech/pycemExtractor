@@ -9,16 +9,10 @@ import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
-import com.github.britooo.looca.api.group.processos.Processo;
-import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
-import com.github.britooo.looca.api.group.servicos.Servico;
-import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
 import database.DatabaseMySQL;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -456,6 +450,9 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         System.out.println("\nUso processador: " + usoProcessador + "%");
         System.out.println("Porcentagem de uso da Memória RAM: " + porcentagemRamFinal + "%");
         System.out.println("Porcentagem de uso da Memória de Massa: " + porcentagemMemoriaMassaFinal + "%");
+        System.out.println(cpuAlerta);
+        System.out.println(ramAlerta);
+        System.out.println(hdAlerta);
         
         db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
         dbMySQL.inserirDados(usoProcessador, porcentagemRamFinal, statusHd);

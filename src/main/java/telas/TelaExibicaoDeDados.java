@@ -289,7 +289,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProcessadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessadorActionPerformed
-        Integer intervalo = freqAlerta * 1000;
+        Integer intervalo = freqAlerta != null ? freqAlerta * 1000 : 5 * 1000;
         exibirDados();
         inserirDados();
         new Timer().scheduleAtFixedRate(new TimerTask() {  
@@ -297,7 +297,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         public void run()  {
          inserirDados();  
             try {
-                integracaoSlack();
+                slack.integracaoSlack();
             } catch (IOException ex) {
                 Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InterruptedException ex) {
@@ -455,41 +455,4 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
 
     }
     
-        public void integracaoSlack() throws IOException, InterruptedException{
-            Processador processador = looca.getProcessador();
-
-            Memoria memoria = looca.getMemoria();
-            Double memoriaEmUso = memoria.getEmUso() / 1073741824.0;
-            Double memoriaTotal = memoria.getTotal() / 1073741824.0;
-            Double porcentagemRam = memoriaEmUso * 100 / memoriaTotal;
-
-            DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-            Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(0).getDisponivel() / 1073741824.0;
-            Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
-            Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
-
-
-            
-            if (processador.getUso() >= cpuAlerta) {
-                slack.enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
-            } else if (processador.getUso() >= cpuCritico) {
-                slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na CPU considerado crítico,"
-                        + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
-            }
-
-            if (porcentagemRam >= ramAlerta) {
-                slack.enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
-            } else if (porcentagemRam >= ramCritico) {
-              slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na RAM considerado crítico,"
-                        + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
-            } 
-
-            if (porcentagemMemoriaMassa >= hdAlerta) {
-                slack.enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
-            } else if (porcentagemMemoriaMassa >= hdAlerta) {
-                slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso no HD considerado crítico,"
-                        + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
-            } 
-
-    }
 }

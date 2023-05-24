@@ -117,11 +117,11 @@ public class Database {
     }
     
     public void desligarMaquina(String usuario, Integer idTotem){
-      
+      Log log = new Log();
         template.update(
                 "UPDATE totem SET estado = 'Desligado' WHERE usuario = ?", usuario);
         template.update(
                 "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Desligado', getDate(), ?) ", idTotem);
-       
+       log.escreverTexto("\nMaquina foi desligada: ");
     }
 }

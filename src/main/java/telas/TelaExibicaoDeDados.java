@@ -414,6 +414,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             statusCPU = "Alerta";
         } else {
             statusCPU = "Critico";
+            log.escreverTexto("\nMEMORIA CPU CHEGOU AO CRITICO: ");
         }
 
         if (ramAlerta < porcentagemRam) {
@@ -422,6 +423,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             statusRam = "Alerta";
         } else {
             statusRam = "Critico";
+            log.escreverTexto("\nMEMORIA RAM CHEGOU AO CRITICO: ");
         }
 
         if (hdAlerta < porcentagemMemoriaMassa) {
@@ -430,6 +432,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             statusHd = "Alerta";
         } else {
             statusHd = "Critico";
+            log.escreverTexto("\nMEMORIA HD CHEGOU AO CRITICO: ");
         }
 
         System.out.println("fkTotem");

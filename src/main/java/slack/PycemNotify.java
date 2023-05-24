@@ -22,7 +22,6 @@ public class PycemNotify {
     Alerta alerta = new Alerta();
     Database bd = new Database();
     String usuario = "cris";
-    Integer freqAlerta = alerta.getFreqAlerta();
     Integer cpuAlerta = bd.selectAlerta("PY_MACHE").getCpuAlerta();
     Integer cpuCritico = bd.selectAlerta("PY_MACHE").getCpuCritico();
     Integer ramAlerta = bd.selectAlerta("PY_MACHE").getRamAlerta();

@@ -401,6 +401,13 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }
 
     public void inserirDados() {
+        Integer cpuAlerta = db.selectAlerta("PY_MACHE").getCpuAlerta();
+        Integer cpuCritico = db.selectAlerta("PY_MACHE").getCpuCritico();
+        Integer ramAlerta = db.selectAlerta("PY_MACHE").getRamAlerta();
+        Integer ramCritico = db.selectAlerta("PY_MACHE").getRamCritico();
+        Integer hdAlerta = db.selectAlerta("PY_MACHE").getHdAlerta();
+        Integer hdCritico = db.selectAlerta("PY_MACHE").getHdCritico();
+        
         Processador processador = looca.getProcessador();
         String usoProcessador = String.format("%.0f", processador.getUso());
 
@@ -419,34 +426,34 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         String statusCPU;
         String statusRam;
         String statusHd;
-        if (cpuAlerta < processador.getUso()) {
+        if (processador.getUso() < cpuAlerta) {
             statusCPU = "Saudavel";
-        } else if (cpuCritico > processador.getUso()) {
+        } else if (processador.getUso() >= cpuAlerta && processador.getUso() < cpuCritico) {
             statusCPU = "Alerta";
         } else {
             statusCPU = "Critico";
         }
 
-        if (ramAlerta < porcentagemRam) {
+        if (porcentagemRam < ramAlerta) {
             statusRam = "Saudavel";
-        } else if (ramCritico > porcentagemRam) {
+        } else if ( porcentagemRam >= ramAlerta && porcentagemRam < ramCritico ) {
             statusRam = "Alerta";
         } else {
             statusRam = "Critico";
         }
 
-        if (hdAlerta < porcentagemMemoriaMassa) {
+        if (porcentagemMemoriaMassa < hdAlerta) {
             statusHd = "Saudavel";
-        } else if (hdAlerta > porcentagemMemoriaMassa) {
+        } else if (porcentagemMemoriaMassa >= hdAlerta && porcentagemMemoriaMassa < hdCritico) {
             statusHd = "Alerta";
         } else {
             statusHd = "Critico";
         }
-
+        System.out.println("---------------------------------------------------------------------------------------");
         System.out.println("Status da CPU: " + statusCPU);
         System.out.println("Status da Memória RAM: " + statusRam);
         System.out.println("Status do HD: " + statusHd);
-        System.out.println("Uso processador: " + usoProcessador + "%");
+        System.out.println("\nUso processador: " + usoProcessador + "%");
         System.out.println("Porcentagem de uso da Memória RAM: " + porcentagemRamFinal + "%");
         System.out.println("Porcentagem de uso da Memória de Massa: " + porcentagemMemoriaMassaFinal + "%");
         

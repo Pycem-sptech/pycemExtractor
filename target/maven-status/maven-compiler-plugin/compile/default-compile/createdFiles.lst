@@ -12,12 +12,14 @@ telas\TelaLogin$3.class
 database\Database.class
 telas\TelaExibicaoDeDados$2.class
 telas\TelaCadastroPrimeiraVez$13.class
+slack\TesteSlack.class
 telas\TelaCadastroPrimeiraVez$17.class
 telas\TelaCadastroPrimeiraVez$2.class
 telas\Utilitarios.class
 telas\TelaCadastroPrimeiraVez.class
 telas\TelaLogin$4.class
 telas\TelaCadastroPrimeiraVez$8.class
+slack\PycemNotify.class
 telas\TelaCadastroPrimeiraVez$10.class
 telas\TelaExibicaoDeDados.class
 database\Registro.class
@@ -30,8 +32,8 @@ telas\TelaCadastroPrimeiraVez$3.class
 telas\TelaCadastroPrimeiraVez$7.class
 telas\Dados.class
 telas\TelaCadastroPrimeiraVez$11.class
+slack\SlackConfig.class
 database\DatabaseMySQL.class
-.netbeans_automatic_build
 telas\TelaLogin$2.class
 telas\TelaCadastroPrimeiraVez$4.class
 telas\TelaCadastroPrimeiraVez$6.class

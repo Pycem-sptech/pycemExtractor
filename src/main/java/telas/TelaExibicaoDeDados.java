@@ -283,6 +283,13 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProcessadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessadorActionPerformed
+        try {
+            slack.integracaoSlack();
+        } catch (IOException ex) {
+            Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Integer intervalo = freqAlerta != null ? freqAlerta * 1000 : 5 * 1000;
         exibirDados();
         inserirDados();
@@ -388,13 +395,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }
 
     public void inserirDados() {
-        try {
-                slack.integracaoSlack();
-            } catch (IOException ex) {
-                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
-            }
+       
         
         Integer cpuAlerta = db.selectAlerta(usuario).getCpuAlerta();
         Integer cpuCritico = db.selectAlerta(usuario).getCpuCritico();

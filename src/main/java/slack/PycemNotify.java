@@ -52,7 +52,7 @@ public class PycemNotify {
             
             if (processador.getUso() >= cpuAlerta && processador.getUso() < cpuCritico) {
                 enviarNotificacao(String.format("A máquina %s está com a cpu em status de alerta", this.usuario));
-            } else if (processador.getUso() >= cpuCritico) {
+            } else if (processador.getUso() >= 1) {
                 enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na CPU considerado crítico,"
                         + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
             }

@@ -48,24 +48,24 @@ public class PycemNotify {
             Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
             Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
 
-
+            
             
             if (processador.getUso() >= cpuAlerta) {
-                enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
+                enviarNotificacao(String.format("A máquina %s está com a cpu em status de alerta", this.usuario));
             } else if (processador.getUso() >= cpuCritico) {
                 enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na CPU considerado crítico,"
                         + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
             }
 
             if (porcentagemRam >= ramAlerta) {
-                enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
+                enviarNotificacao(String.format("A máquina %s está com a ram em status de alerta", this.usuario));
             } else if (porcentagemRam >= ramCritico) {
               enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na RAM considerado crítico,"
                         + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
             } 
 
             if (porcentagemMemoriaMassa >= hdAlerta) {
-                enviarNotificacao(String.format("A máquina %s está em status de alerta", this.usuario));
+                enviarNotificacao(String.format("A máquina %s está com a memória de massa em status de alerta", this.usuario));
             } else if (porcentagemMemoriaMassa >= hdAlerta) {
                 enviarNotificacao(String.format("A máquina %s apresentou um pico de uso no HD considerado crítico,"
                         + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));

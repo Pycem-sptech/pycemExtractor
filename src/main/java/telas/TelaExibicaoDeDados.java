@@ -443,16 +443,15 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         } else {
             statusHd = "Critico";
         }
-        System.out.println("---------------------------------------------------------------------------------------");
+        
+        System.out.println("----------------------------------------------------------------------------------------");
         System.out.println("Status da CPU: " + statusCPU);
         System.out.println("Status da Memória RAM: " + statusRam);
         System.out.println("Status do HD: " + statusHd);
         System.out.println("\nUso processador: " + usoProcessador + "%");
         System.out.println("Porcentagem de uso da Memória RAM: " + porcentagemRamFinal + "%");
         System.out.println("Porcentagem de uso da Memória de Massa: " + porcentagemMemoriaMassaFinal + "%");
-        System.out.println(cpuAlerta);
-        System.out.println(ramAlerta);
-        System.out.println(hdAlerta);
+      
         
         db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
         dbMySQL.inserirDados(usoProcessador, porcentagemRamFinal, statusHd);

@@ -31,7 +31,6 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     Utilitarios util = new Utilitarios();
     Database db = new Database();
     DatabaseMySQL dbMySQL = new DatabaseMySQL();
-    PycemNotify slack = new PycemNotify();
     private String usuario;
     private Integer fkTotem;
     private Integer freqAlerta;
@@ -286,12 +285,13 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         Integer intervalo = freqAlerta != null ? freqAlerta * 1000 : 5 * 1000;
         exibirDados();
         inserirDados();
+        PycemNotify slack = new PycemNotify(usuario);
         new Timer().scheduleAtFixedRate(new TimerTask() {  
         @Override
         public void run()  {
          inserirDados();  
          try {
-            integracaoSlack();
+            slack.integracaoSlack();
         } catch (IOException ex) {
             Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InterruptedException ex) {
@@ -439,7 +439,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         }
         
         System.out.println("\n-----------------------------------------------------------");
-        System.out.println("Status da CPU: " + statusCPU);
+        System.out.println("\nStatus da CPU: " + statusCPU);
         System.out.println("Status da Memória RAM: " + statusRam);
         System.out.println("Status do HD: " + statusHd);
         System.out.println("\nUso processador: " + usoProcessador + "%");
@@ -452,39 +452,5 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
 
     }
     
-     public void integracaoSlack() throws IOException, InterruptedException{
-            Processador processador = looca.getProcessador();
-
-            Memoria memoria = looca.getMemoria();
-            Double memoriaEmUso = memoria.getEmUso() / 1073741824.0;
-            Double memoriaTotal = memoria.getTotal() / 1073741824.0;
-            Double porcentagemRam = memoriaEmUso * 100 / memoriaTotal;
-
-            DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-            Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(0).getDisponivel() / 1073741824.0;
-            Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
-            Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
-
-            if (processador.getUso() >= cpuAlerta && processador.getUso() < cpuCritico) {
-                slack.enviarNotificacao(String.format("A máquina %s está com a cpu em status de alerta", this.usuario));
-            } else if (processador.getUso() >= cpuCritico) {
-                slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na CPU considerado crítico,"
-                        + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
-            }
-
-            if (porcentagemRam >= ramAlerta && porcentagemRam < ramCritico) {
-                slack.enviarNotificacao(String.format("A máquina %s está com a ram em status de alerta", this.usuario));
-            } else if (porcentagemRam >= ramCritico) {
-                slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na RAM considerado crítico,"
-                        + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
-            } 
-
-            if (porcentagemMemoriaMassa >= hdAlerta && porcentagemMemoriaMassa < hdAlerta) {
-                slack.enviarNotificacao(String.format("A máquina %s está com a memória de massa em status de alerta", this.usuario));
-            } else if (porcentagemMemoriaMassa >= hdAlerta) {
-                slack.enviarNotificacao(String.format("A máquina %s apresentou um pico de uso no HD considerado crítico,"
-                        + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
-            } 
-
-    }
+    
 }

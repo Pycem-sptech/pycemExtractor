@@ -48,7 +48,7 @@ public class PycemNotify {
             Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
             Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
 
-            
+            System.out.println("param alert: " + ramAlerta + " real: " + porcentagemRam);
             
             if (processador.getUso() >= cpuAlerta) {
                 enviarNotificacao(String.format("A máquina %s está com a cpu em status de alerta", this.usuario));

@@ -290,13 +290,6 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         @Override
         public void run()  {
          inserirDados();  
-            try {
-                slack.integracaoSlack();
-            } catch (IOException ex) {
-                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }, 0, intervalo);
     }//GEN-LAST:event_btnProcessadorActionPerformed
@@ -395,12 +388,20 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }
 
     public void inserirDados() {
-        Integer cpuAlerta = db.selectAlerta("PY_MACHE").getCpuAlerta();
-        Integer cpuCritico = db.selectAlerta("PY_MACHE").getCpuCritico();
-        Integer ramAlerta = db.selectAlerta("PY_MACHE").getRamAlerta();
-        Integer ramCritico = db.selectAlerta("PY_MACHE").getRamCritico();
-        Integer hdAlerta = db.selectAlerta("PY_MACHE").getHdAlerta();
-        Integer hdCritico = db.selectAlerta("PY_MACHE").getHdCritico();
+        try {
+                slack.integracaoSlack();
+            } catch (IOException ex) {
+                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(TelaExibicaoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        Integer cpuAlerta = db.selectAlerta(usuario).getCpuAlerta();
+        Integer cpuCritico = db.selectAlerta(usuario).getCpuCritico();
+        Integer ramAlerta = db.selectAlerta(usuario).getRamAlerta();
+        Integer ramCritico = db.selectAlerta(usuario).getRamCritico();
+        Integer hdAlerta = db.selectAlerta(usuario).getHdAlerta();
+        Integer hdCritico = db.selectAlerta(usuario).getHdCritico();
         
         Processador processador = looca.getProcessador();
         String usoProcessador = String.format("%.0f", processador.getUso());

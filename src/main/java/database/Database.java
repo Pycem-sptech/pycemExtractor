@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import telas.Log;
 
 public class Database {
 
@@ -112,9 +113,11 @@ public class Database {
     }
     
     public void desligarMaquina(String usuario, Integer idTotem){
+        Log log = new Log();
         template.update(
                 "UPDATE totem SET estado = 'Desligado' WHERE usuario = ?", usuario);
         template.update(
                 "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Desligado', getDate(), ?) ", idTotem);
+        log.escreverTexto("\nMaquina foi Desligada:");
     }
 }

@@ -395,7 +395,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }
 
     public void inserirDados() {
-        
+        Log log = new Log();
         Processador processador = looca.getProcessador();
         String usoProcessador = String.format("%.0f", processador.getUso());
 
@@ -420,6 +420,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             statusCPU = "Alerta";
         } else {
             statusCPU = "Critico";
+            log.escreverTexto("\nCPU chegou em estado Critico: ");
         }
 
         if (porcentagemRam < ramAlerta) {
@@ -428,6 +429,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             statusRam = "Alerta";
         } else {
             statusRam = "Critico";
+            log.escreverTexto("\nMemoria RAM chegou em estado Critico: ");
         }
 
         if (porcentagemMemoriaMassa < hdAlerta) {
@@ -436,6 +438,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             statusHd = "Alerta";
         } else {
             statusHd = "Critico";
+            log.escreverTexto("\nHD chegou em estado Critico: ");
         }
         
         System.out.println("\n-----------------------------------------------------------");

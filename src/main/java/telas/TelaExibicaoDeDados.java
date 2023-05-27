@@ -9,17 +9,16 @@ import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
-import com.github.britooo.looca.api.group.processos.Processo;
-import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
-import com.github.britooo.looca.api.group.servicos.Servico;
-import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.util.Conversor;
 import database.Database;
-import java.util.ArrayList;
-import java.util.Date;
+import database.DatabaseMySQL;
+import java.io.IOException;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import slack.PycemNotify;
 
 
 /**
@@ -27,7 +26,7 @@ import java.util.TimerTask;
  * @author Usuário
  */
 public class TelaExibicaoDeDados extends javax.swing.JFrame {
-
+  
     Looca looca = new Looca();
     Utilitarios util = new Utilitarios();
     Database db = new Database();
@@ -284,10 +283,11 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProcessadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessadorActionPerformed
-        Integer intervalo = freqAlerta * 1000;
+        Integer intervalo = freqAlerta != null ? freqAlerta * 1000 : 5 * 1000;
         exibirDados();
         inserirDados();
-        new Timer().scheduleAtFixedRate(new TimerTask() {
+        PycemNotify slack = new PycemNotify(usuario);
+        new Timer().scheduleAtFixedRate(new TimerTask() {  
         @Override
         public void run() {
             inserirDados();
@@ -389,7 +389,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     }
 
     public void inserirDados() {
-        
+        Log log = new Log();
         Processador processador = looca.getProcessador();
         String usoProcessador = String.format("%.0f", processador.getUso());
 
@@ -408,47 +408,45 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         String statusCPU;
         String statusRam;
         String statusHd;
-        if (cpuAlerta < processador.getUso()) {
+        if (processador.getUso() < cpuAlerta) {
             statusCPU = "Saudavel";
-        } else if (cpuCritico > processador.getUso()) {
+        } else if (processador.getUso() >= cpuAlerta && processador.getUso() < cpuCritico) {
             statusCPU = "Alerta";
         } else {
             statusCPU = "Critico";
             log.escreverTexto("\nMEMORIA CPU CHEGOU AO CRITICO: ");
         }
 
-        if (ramAlerta < porcentagemRam) {
+        if (porcentagemRam < ramAlerta) {
             statusRam = "Saudavel";
-        } else if (ramCritico > porcentagemRam) {
+        } else if ( porcentagemRam >= ramAlerta && porcentagemRam < ramCritico ) {
             statusRam = "Alerta";
         } else {
             statusRam = "Critico";
             log.escreverTexto("\nMEMORIA RAM CHEGOU AO CRITICO: ");
         }
 
-        if (hdAlerta < porcentagemMemoriaMassa) {
+        if (porcentagemMemoriaMassa < hdAlerta) {
             statusHd = "Saudavel";
-        } else if (hdAlerta > porcentagemMemoriaMassa) {
+        } else if (porcentagemMemoriaMassa >= hdAlerta && porcentagemMemoriaMassa < hdCritico) {
             statusHd = "Alerta";
         } else {
             statusHd = "Critico";
             log.escreverTexto("\nMEMORIA HD CHEGOU AO CRITICO: ");
         }
-
-        System.out.println("fkTotem");
-        System.out.println(fkTotem);
-        System.out.println(statusCPU);
-        System.out.println(statusRam);
-        System.out.println(statusHd);
-        System.out.println(porcentagemMemoriaMassaFinal);
-        System.out.println(porcentagemMemoriaMassa);
-        System.out.println(memoriaMassaDisponivel);
-        System.out.println(memoriaMassaTotal);
+        
+        System.out.println("\n-----------------------------------------------------------");
+        System.out.println("\nStatus da CPU: " + statusCPU);
+        System.out.println("Status da Memória RAM: " + statusRam);
+        System.out.println("Status do HD: " + statusHd);
+        System.out.println("\nUso processador: " + usoProcessador + "%");
+        System.out.println("Porcentagem de uso da Memória RAM: " + porcentagemRamFinal + "%");
+        System.out.println("Porcentagem de uso da Memória de Massa: " + porcentagemMemoriaMassaFinal + "%");
+      
         
         db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
         
     }
     
     
-
 }

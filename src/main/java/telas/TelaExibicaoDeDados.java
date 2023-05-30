@@ -101,6 +101,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblDesempenho = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -108,12 +110,17 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Processador:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(310, 150, 106, 17);
 
         lblInfoProcessadorFabricante.setText("Fabricante:");
         lblInfoProcessadorFabricante.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoProcessadorFabricante);
+        lblInfoProcessadorFabricante.setBounds(310, 170, 310, 17);
 
         btnProcessador.setText("Atualizar Dados");
         btnProcessador.addActionListener(new java.awt.event.ActionListener() {
@@ -121,161 +128,117 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
                 btnProcessadorActionPerformed(evt);
             }
         });
+        getContentPane().add(btnProcessador);
+        btnProcessador.setBounds(581, 617, 186, 23);
 
         lblInfoProcessadorNome.setText("Nome:");
         lblInfoProcessadorNome.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoProcessadorNome);
+        lblInfoProcessadorNome.setBounds(310, 190, 390, 17);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setText("Dados do Computador");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(440, 20, 601, 57);
 
         lblInfoProcessadorCPUFisicas.setText("Número de CPU Física:");
         lblInfoProcessadorCPUFisicas.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoProcessadorCPUFisicas);
+        lblInfoProcessadorCPUFisicas.setBounds(310, 220, 390, 17);
 
         lblInfoProcessadorCPULogica.setText("Número de CPU Lógica:");
         lblInfoProcessadorCPULogica.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoProcessadorCPULogica);
+        lblInfoProcessadorCPULogica.setBounds(310, 240, 390, 17);
 
         lblInfoProcessadorEmUso.setText("Em uso:");
         lblInfoProcessadorEmUso.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoProcessadorEmUso);
+        lblInfoProcessadorEmUso.setBounds(920, 170, 126, 17);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Memória RAM:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(310, 270, 112, 17);
 
         lblInfoRAMEmUso.setText("Em uso:");
         lblInfoRAMEmUso.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoRAMEmUso);
+        lblInfoRAMEmUso.setBounds(1090, 170, 117, 17);
 
         lblInfoRAMDisponivel.setText("Disponível:");
         lblInfoRAMDisponivel.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoRAMDisponivel);
+        lblInfoRAMDisponivel.setBounds(1090, 190, 117, 17);
 
         lblInfoMemoriaMassaNome.setText("Nome:");
         lblInfoMemoriaMassaNome.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoMemoriaMassaNome);
+        lblInfoMemoriaMassaNome.setBounds(310, 360, 292, 17);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Memória de Massa:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(310, 330, 152, 17);
 
         lblInfoMemoriaMassaModelo.setText("Modelo:");
         lblInfoMemoriaMassaModelo.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoMemoriaMassaModelo);
+        lblInfoMemoriaMassaModelo.setBounds(310, 390, 292, 17);
 
         lblInfoMemoriaMassaTamanho.setText("Tamanho:");
         lblInfoMemoriaMassaTamanho.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoMemoriaMassaTamanho);
+        lblInfoMemoriaMassaTamanho.setBounds(310, 420, 131, 17);
 
         lblInfoRAMTotal.setText("Total:");
         lblInfoRAMTotal.setMaximumSize(new java.awt.Dimension(200, 500));
+        getContentPane().add(lblInfoRAMTotal);
+        lblInfoRAMTotal.setBounds(310, 300, 194, 17);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Carcaterísticas do Hardware:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(310, 90, 390, 29);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Processador:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(920, 150, 106, 17);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Memória RAM:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(1090, 150, 112, 17);
 
         lblDesempenho.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblDesempenho.setText("Desempenho:");
+        getContentPane().add(lblDesempenho);
+        lblDesempenho.setBounds(890, 100, 184, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4)
-                        .addComponent(lblInfoMemoriaMassaTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblInfoMemoriaMassaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblInfoMemoriaMassaNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(334, 334, 334))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jLabel1)
-                                                .addGap(401, 401, 401))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblInfoProcessadorFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(lblInfoProcessadorCPULogica, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblInfoProcessadorCPUFisicas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblInfoProcessadorNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGap(98, 98, 98))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnProcessador, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(46, 46, 46)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(lblInfoProcessadorEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(48, 48, 48)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblInfoRAMEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8)
-                                .addComponent(lblInfoRAMDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(170, 170, 170))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(lblInfoRAMTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap()))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(786, Short.MAX_VALUE)
-                    .addComponent(lblDesempenho)
-                    .addGap(304, 304, 304)))
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Py.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel6)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblInfoProcessadorFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblInfoProcessadorEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblInfoRAMEmUso, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblInfoProcessadorNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblInfoRAMDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInfoProcessadorCPUFisicas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInfoProcessadorCPULogica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInfoRAMTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(12, 12, 12)
-                .addComponent(lblInfoMemoriaMassaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblInfoMemoriaMassaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblInfoMemoriaMassaTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(btnProcessador)
-                .addGap(67, 67, 67))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(103, 103, 103)
-                    .addComponent(lblDesempenho)
-                    .addContainerGap(575, Short.MAX_VALUE)))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel6)
+                .addContainerGap(623, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 180, 710);
 
         pack();
         setLocationRelativeTo(null);
@@ -347,8 +310,10 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDesempenho;
     private javax.swing.JLabel lblInfoMemoriaMassaModelo;
     private javax.swing.JLabel lblInfoMemoriaMassaNome;

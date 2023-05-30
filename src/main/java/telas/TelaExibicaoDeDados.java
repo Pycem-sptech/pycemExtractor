@@ -406,43 +406,50 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         String porcentagemRamFinal = String.format("%.0f", porcentagemRam);
 
         DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(1).getDisponivel() / 1073741824.0;
-        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(1).getTotal() / 1073741824.0;
+        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(0).getDisponivel() / 1073741824.0;
+        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
         Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
         String porcentagemMemoriaMassaFinal = String.format("%.0f", porcentagemMemoriaMassa);
 
         String statusCPU;
         String statusRam;
         String statusHd;
-        if (processador.getUso() < cpuAlerta) {
+        
+        Integer contador = 0;
+        
+        if (cpuAlerta > processador.getUso()) {
             statusCPU = "Saudavel";
         } else if (processador.getUso() >= cpuAlerta && processador.getUso() < cpuCritico) {
             statusCPU = "Alerta";
         } else {
             statusCPU = "Critico";
-            log.escreverTexto("\nCPU chegou em estado Critico: ");
+            contador++;
         }
 
-        if (porcentagemRam < ramAlerta) {
+        if (ramAlerta > porcentagemRam) {
             statusRam = "Saudavel";
         } else if ( porcentagemRam >= ramAlerta && porcentagemRam < ramCritico ) {
             statusRam = "Alerta";
         } else {
             statusRam = "Critico";
-            log.escreverTexto("\nMemoria RAM chegou em estado Critico: ");
+            contador++;
         }
 
-        if (porcentagemMemoriaMassa < hdAlerta) {
+        if (hdAlerta > porcentagemMemoriaMassa) {
             statusHd = "Saudavel";
         } else if (porcentagemMemoriaMassa >= hdAlerta && porcentagemMemoriaMassa < hdCritico) {
             statusHd = "Alerta";
         } else {
             statusHd = "Critico";
-            log.escreverTexto("\nHD chegou em estado Critico: ");
+            contador++;
         }
         
-        System.out.println("\n-----------------------------------------------------------");
-        System.out.println("\nStatus da CPU: " + statusCPU);
+        if (contador >= 2){
+            db.abrirChamado(fkTotem);
+        }
+        
+
+        System.out.println("Status da CPU: " + statusCPU);
         System.out.println("Status da Memória RAM: " + statusRam);
         System.out.println("Status do HD: " + statusHd);
         System.out.println("\nUso processador: " + usoProcessador + "%");

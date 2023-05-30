@@ -120,4 +120,18 @@ public class Database {
                 "INSERT INTO historico_totem (estadoTotem, data_historico, fkTotem) VALUES('Desligado', getDate(), ?) ", idTotem);
         log.escreverTexto("\nMaquina foi Desligada:");
     }
+    
+    public void abrirChamado(Integer idTotem){
+        Registro registro = template.queryForObject("SELECT top 1 * FROM registro WHERE fkTotem = ? order by idRegistro desc ",
+                new BeanPropertyRowMapper<>(Registro.class), idTotem);
+        
+        String descricaoPadrao = String.format("O TOTEM SOBRECARREGOU - STATUS(CPU: %s,  RAM: %s, MEMÓRIA DE MASSA: %s)", registro.getCpuStatus(), registro.getRamStatus(), registro.getHdStatus());
+        
+        template.update(
+                "INSERT INTO chamado (descricao, tipo, prioridade, usuario_totem, nome_unidade, fkTotem, fkUnidade) "
+                        + "VALUES(?, 'Sobrecarga', 'P5', (select usuario from totem where idTotem = ?), "
+                        + "(select unidade.nome from unidade join totem on idUnidade = fkUnidade where idTotem = ?), ?, "
+                        + "(select unidade.idUnidade from unidade join totem on idUnidade = fkUnidade where idTotem = ?)) ", descricaoPadrao, idTotem, idTotem, idTotem, idTotem
+        );
+    }
 }

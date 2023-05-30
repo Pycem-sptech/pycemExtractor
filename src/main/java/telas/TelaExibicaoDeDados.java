@@ -103,6 +103,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         lblDesempenho = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -220,13 +221,17 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Py.png"))); // NOI18N
 
+        jLabel9.setText("jLabel9");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jLabel6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel6))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -234,7 +239,9 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel6)
-                .addContainerGap(623, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 535, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(71, 71, 71))
         );
 
         getContentPane().add(jPanel1);
@@ -313,6 +320,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDesempenho;
     private javax.swing.JLabel lblInfoMemoriaMassaModelo;
@@ -423,7 +431,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
       
         
         db.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal, statusCPU, statusRam, statusHd, fkTotem);
-        dbMySQL.inserirDados(usoProcessador, porcentagemRamFinal, statusHd);
+        dbMySQL.inserirDados(usoProcessador, porcentagemRamFinal, porcentagemMemoriaMassaFinal);
 
     }
     

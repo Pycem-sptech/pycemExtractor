@@ -399,37 +399,48 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         String porcentagemRamFinal = String.format("%.0f", porcentagemRam);
 
         DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(1).getDisponivel() / 1073741824.0;
-        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(1).getTotal() / 1073741824.0;
+        Double memoriaMassaDisponivel = grupoDeDiscos.getVolumes().get(0).getDisponivel() / 1073741824.0;
+        Double memoriaMassaTotal = grupoDeDiscos.getVolumes().get(0).getTotal() / 1073741824.0;
         Double porcentagemMemoriaMassa = 100 - memoriaMassaDisponivel * 100 / memoriaMassaTotal;
         String porcentagemMemoriaMassaFinal = String.format("%.0f", porcentagemMemoriaMassa);
 
         String statusCPU;
         String statusRam;
         String statusHd;
-        if (cpuAlerta < processador.getUso()) {
+        
+        Integer contador = 0;
+        
+        if (cpuAlerta > processador.getUso()) {
             statusCPU = "Saudavel";
         } else if (cpuCritico > processador.getUso()) {
             statusCPU = "Alerta";
         } else {
             statusCPU = "Critico";
+            contador++;
         }
 
-        if (ramAlerta < porcentagemRam) {
+        if (ramAlerta > porcentagemRam) {
             statusRam = "Saudavel";
         } else if (ramCritico > porcentagemRam) {
             statusRam = "Alerta";
         } else {
             statusRam = "Critico";
+            contador++;
         }
 
-        if (hdAlerta < porcentagemMemoriaMassa) {
+        if (hdAlerta > porcentagemMemoriaMassa) {
             statusHd = "Saudavel";
         } else if (hdAlerta > porcentagemMemoriaMassa) {
             statusHd = "Alerta";
         } else {
             statusHd = "Critico";
+            contador++;
         }
+        
+        if (contador >= 2){
+            db.abrirChamado(fkTotem);
+        }
+        
 
         System.out.println("Status da CPU: " + statusCPU);
         System.out.println("Status da Memória RAM: " + statusRam);

@@ -3,7 +3,7 @@ telas/Utilitarios.class
 telas/Dados$1.class
 database/DatabaseMySQL.class
 telas/TelaLogin$4.class
-database/Usuario.class
+telas/TelaExibicaoDeDados$5.class
 telas/TelaExibicaoDeDados$2.class
 telas/TelaCadastroPrimeiraVez$10.class
 telas/TelaCadastroPrimeiraVez$7.class
@@ -32,6 +32,7 @@ slack/PycemNotify.class
 telas/TelaLogin$2.class
 telas/Log.class
 telas/TelaCadastroPrimeiraVez$2.class
+.netbeans_automatic_build
 telas/TelaExibicaoDeDados.class
 telas/TelaCadastroPrimeiraVez$13.class
 telas/TelaCadastroPrimeiraVez$1.class

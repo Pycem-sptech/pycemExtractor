@@ -81,47 +81,47 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        lblInfoProcessadorFabricante = new javax.swing.JLabel();
         btnProcessador = new javax.swing.JButton();
-        lblInfoProcessadorNome = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblInfoProcessadorCPUFisicas = new javax.swing.JLabel();
-        lblInfoProcessadorCPULogica = new javax.swing.JLabel();
-        lblInfoProcessadorEmUso = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblInfoRAMEmUso = new javax.swing.JLabel();
-        lblInfoRAMDisponivel = new javax.swing.JLabel();
-        lblInfoMemoriaMassaNome = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblInfoMemoriaMassaModelo = new javax.swing.JLabel();
-        lblInfoMemoriaMassaTamanho = new javax.swing.JLabel();
-        lblInfoRAMTotal = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        lblDesempenho = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        lblNomeMaquina = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblInfoProcessadorFabricante = new javax.swing.JLabel();
+        lblInfoProcessadorNome = new javax.swing.JLabel();
+        lblInfoProcessadorCPUFisicas = new javax.swing.JLabel();
+        lblInfoProcessadorCPULogica = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblInfoRAMTotal = new javax.swing.JLabel();
+        lblInfoMemoriaMassaTamanho = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblInfoMemoriaMassaNome = new javax.swing.JLabel();
+        lblInfoMemoriaMassaModelo = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        lblDesempenho = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblInfoProcessadorEmUso = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblInfoRAMEmUso = new javax.swing.JLabel();
+        lblInfoRAMDisponivel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1230, 730));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
         getContentPane().setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Processador:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(310, 150, 106, 17);
-
-        lblInfoProcessadorFabricante.setText("Fabricante:");
-        lblInfoProcessadorFabricante.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoProcessadorFabricante);
-        lblInfoProcessadorFabricante.setBounds(310, 170, 310, 17);
 
         btnProcessador.setText("Atualizar Dados");
         btnProcessador.addActionListener(new java.awt.event.ActionListener() {
@@ -132,96 +132,21 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
         getContentPane().add(btnProcessador);
         btnProcessador.setBounds(581, 617, 186, 23);
 
-        lblInfoProcessadorNome.setText("Nome:");
-        lblInfoProcessadorNome.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoProcessadorNome);
-        lblInfoProcessadorNome.setBounds(310, 190, 390, 17);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setText("Dados do Computador");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(440, 20, 601, 57);
-
-        lblInfoProcessadorCPUFisicas.setText("Número de CPU Física:");
-        lblInfoProcessadorCPUFisicas.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoProcessadorCPUFisicas);
-        lblInfoProcessadorCPUFisicas.setBounds(310, 220, 390, 17);
-
-        lblInfoProcessadorCPULogica.setText("Número de CPU Lógica:");
-        lblInfoProcessadorCPULogica.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoProcessadorCPULogica);
-        lblInfoProcessadorCPULogica.setBounds(310, 240, 390, 17);
-
-        lblInfoProcessadorEmUso.setText("Em uso:");
-        lblInfoProcessadorEmUso.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoProcessadorEmUso);
-        lblInfoProcessadorEmUso.setBounds(920, 170, 126, 17);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Memória RAM:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(310, 270, 112, 17);
-
-        lblInfoRAMEmUso.setText("Em uso:");
-        lblInfoRAMEmUso.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoRAMEmUso);
-        lblInfoRAMEmUso.setBounds(1090, 170, 117, 17);
-
-        lblInfoRAMDisponivel.setText("Disponível:");
-        lblInfoRAMDisponivel.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoRAMDisponivel);
-        lblInfoRAMDisponivel.setBounds(1090, 190, 117, 17);
-
-        lblInfoMemoriaMassaNome.setText("Nome:");
-        lblInfoMemoriaMassaNome.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoMemoriaMassaNome);
-        lblInfoMemoriaMassaNome.setBounds(310, 360, 292, 17);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Memória de Massa:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(310, 330, 152, 17);
-
-        lblInfoMemoriaMassaModelo.setText("Modelo:");
-        lblInfoMemoriaMassaModelo.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoMemoriaMassaModelo);
-        lblInfoMemoriaMassaModelo.setBounds(310, 390, 292, 17);
-
-        lblInfoMemoriaMassaTamanho.setText("Tamanho:");
-        lblInfoMemoriaMassaTamanho.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoMemoriaMassaTamanho);
-        lblInfoMemoriaMassaTamanho.setBounds(310, 420, 131, 17);
-
-        lblInfoRAMTotal.setText("Total:");
-        lblInfoRAMTotal.setMaximumSize(new java.awt.Dimension(200, 500));
-        getContentPane().add(lblInfoRAMTotal);
-        lblInfoRAMTotal.setBounds(310, 300, 194, 17);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel5.setText("Carcaterísticas do Hardware:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(310, 90, 390, 29);
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Processador:");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(920, 150, 106, 17);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setText("Memória RAM:");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(1090, 150, 112, 17);
-
-        lblDesempenho.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblDesempenho.setText("Desempenho:");
-        getContentPane().add(lblDesempenho);
-        lblDesempenho.setBounds(890, 100, 184, 29);
+        jLabel2.setBounds(200, 100, 650, 43);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Py.png"))); // NOI18N
 
-        jLabel9.setText("jLabel9");
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/exit 1.png"))); // NOI18N
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,23 +154,161 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
                     .addComponent(jLabel6))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 535, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(71, 71, 71))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 524, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(51, 51, 51))
         );
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 180, 710);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/user(1) 1.png"))); // NOI18N
+
+        lblNomeMaquina.setBackground(new java.awt.Color(0, 0, 0));
+        lblNomeMaquina.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
+        lblNomeMaquina.setForeground(new java.awt.Color(0, 0, 0));
+        lblNomeMaquina.setText("lblNomeMaquina");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(821, Short.MAX_VALUE)
+                .addComponent(lblNomeMaquina)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(23, 23, 23))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblNomeMaquina)))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(200, 10, 1010, 60);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(null);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Características do Hardware:");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(10, 10, 256, 22);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Processador:");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(20, 40, 106, 17);
+
+        lblInfoProcessadorFabricante.setText("Fabricante:");
+        lblInfoProcessadorFabricante.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoProcessadorFabricante);
+        lblInfoProcessadorFabricante.setBounds(20, 60, 310, 17);
+
+        lblInfoProcessadorNome.setText("Nome:");
+        lblInfoProcessadorNome.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoProcessadorNome);
+        lblInfoProcessadorNome.setBounds(20, 80, 390, 17);
+
+        lblInfoProcessadorCPUFisicas.setText("Número de CPU Física:");
+        lblInfoProcessadorCPUFisicas.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoProcessadorCPUFisicas);
+        lblInfoProcessadorCPUFisicas.setBounds(20, 100, 287, 17);
+
+        lblInfoProcessadorCPULogica.setText("Número de CPU Lógica:");
+        lblInfoProcessadorCPULogica.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoProcessadorCPULogica);
+        lblInfoProcessadorCPULogica.setBounds(20, 120, 272, 17);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Memória RAM:");
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(770, 40, 112, 17);
+
+        lblInfoRAMTotal.setText("Total:");
+        lblInfoRAMTotal.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoRAMTotal);
+        lblInfoRAMTotal.setBounds(770, 60, 194, 17);
+
+        lblInfoMemoriaMassaTamanho.setText("Tamanho:");
+        lblInfoMemoriaMassaTamanho.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoMemoriaMassaTamanho);
+        lblInfoMemoriaMassaTamanho.setBounds(440, 100, 131, 17);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("Memória de Massa:");
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(440, 40, 152, 17);
+
+        lblInfoMemoriaMassaNome.setText("Nome:");
+        lblInfoMemoriaMassaNome.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoMemoriaMassaNome);
+        lblInfoMemoriaMassaNome.setBounds(440, 60, 292, 17);
+
+        lblInfoMemoriaMassaModelo.setText("Modelo:");
+        lblInfoMemoriaMassaModelo.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel3.add(lblInfoMemoriaMassaModelo);
+        lblInfoMemoriaMassaModelo.setBounds(440, 80, 292, 17);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(200, 160, 1010, 160);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(null);
+
+        lblDesempenho.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblDesempenho.setText("Desempenho:");
+        jPanel4.add(lblDesempenho);
+        lblDesempenho.setBounds(10, 10, 184, 29);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("Processador:");
+        jPanel4.add(jLabel7);
+        jLabel7.setBounds(20, 50, 106, 17);
+
+        lblInfoProcessadorEmUso.setText("Em uso:");
+        lblInfoProcessadorEmUso.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel4.add(lblInfoProcessadorEmUso);
+        lblInfoProcessadorEmUso.setBounds(20, 70, 126, 17);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("Memória RAM:");
+        jPanel4.add(jLabel8);
+        jLabel8.setBounds(440, 50, 112, 17);
+
+        lblInfoRAMEmUso.setText("Em uso:");
+        lblInfoRAMEmUso.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel4.add(lblInfoRAMEmUso);
+        lblInfoRAMEmUso.setBounds(440, 70, 117, 17);
+
+        lblInfoRAMDisponivel.setText("Disponível:");
+        lblInfoRAMDisponivel.setMaximumSize(new java.awt.Dimension(200, 500));
+        jPanel4.add(lblInfoRAMDisponivel);
+        lblInfoRAMDisponivel.setBounds(440, 90, 117, 17);
+
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(200, 350, 710, 160);
 
         pack();
         setLocationRelativeTo(null);
@@ -274,6 +337,15 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         db.desligarMaquina(usuario, fkTotem);
     }//GEN-LAST:event_formWindowClosing
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        db.desligarMaquina(usuario, fkTotem);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        lblNomeMaquina.setText(usuario);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -313,6 +385,8 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProcessador;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -320,8 +394,10 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblDesempenho;
     private javax.swing.JLabel lblInfoMemoriaMassaModelo;
     private javax.swing.JLabel lblInfoMemoriaMassaNome;
@@ -334,6 +410,7 @@ public class TelaExibicaoDeDados extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfoRAMDisponivel;
     private javax.swing.JLabel lblInfoRAMEmUso;
     private javax.swing.JLabel lblInfoRAMTotal;
+    private javax.swing.JLabel lblNomeMaquina;
     // End of variables declaration//GEN-END:variables
 
     public void exibirDados() {

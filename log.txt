@@ -39,3 +39,7 @@ Maquina foi Desligada:2023-05-30T21:20:37.650451465; eduardo; 127.0.1.1; 5.33672
 Maquina foi Desligada:2023-05-30T21:20:40.407464655; eduardo; 127.0.1.1; 9.535759096612297; 4.5 GiB; 5.7 GiB; Linux Mint; 64; GNU/Linux; 0 days, 03:30:24; 
 Maquina foi Desligada:2023-05-30T21:23:49.976033011; eduardo; 127.0.1.1; 40.298507462686565; 4.6 GiB; 5.7 GiB; Linux Mint; 64; GNU/Linux; 0 days, 03:33:34; 
 Maquina foi Desligada:2023-05-30T21:24:02.776346488; eduardo; 127.0.1.1; 4.534005037783375; 4.5 GiB; 5.7 GiB; Linux Mint; 64; GNU/Linux; 0 days, 03:33:46; 
+Login Realizado2023-06-06T20:47:07.294689600; pedrao; 192.168.0.126; 5.787224211620654; 7,0 GiB; 7,7 GiB; Windows; 64; Microsoft; 21 days, 22:56:50; 
+Maquina foi Desligada:2023-06-06T20:47:25.600215600; pedrao; 192.168.0.126; 2.225945428434658; 7,0 GiB; 7,7 GiB; Windows; 64; Microsoft; 21 days, 22:57:08; 
+Login Realizado2023-06-06T20:51:18.470105900; pedrao; 192.168.0.126; 2.809798270893372; 7,0 GiB; 7,7 GiB; Windows; 64; Microsoft; 21 days, 23:01:01; 
+Maquina foi Desligada:2023-06-06T20:52:16.392990700; pedrao; 192.168.0.126; 3.324656885944155; 7,2 GiB; 7,7 GiB; Windows; 64; Microsoft; 21 days, 23:01:59; 

@@ -12,6 +12,7 @@ import database.Alerta;
 import database.Database;
 import java.io.IOException;
 import org.json.JSONObject;
+import telas.Log;
 
 /*
  * @author Cris
@@ -21,6 +22,7 @@ public class PycemNotify {
     Looca looca = new Looca();
     Alerta alerta = new Alerta();
     Database bd = new Database();
+    Log log = new Log();
     
     String usuario;
     Integer cpuAlerta ;
@@ -61,23 +63,29 @@ public class PycemNotify {
 
             if (processador.getUso() >= cpuAlerta && processador.getUso() < cpuCritico) {
                 enviarNotificacao(String.format("A máquina %s está com a cpu em status de alerta", this.usuario));
+                log.escreverTexto("\nCPU-STATUS-ALERTA: ");
             } else if (processador.getUso() >= cpuCritico) {
                 enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na CPU considerado crítico,"
                         + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
+                        log.escreverTexto("\nCPU-STATUS-CRITICO: ");
             }
 
             if (porcentagemRam >= ramAlerta && porcentagemRam < ramCritico) {
                 enviarNotificacao(String.format("A máquina %s está com a ram em status de alerta", this.usuario));
+                log.escreverTexto("\nRAM-STATUS-ALERTA: ");
             } else if (porcentagemRam >= ramCritico) {
                 enviarNotificacao(String.format("A máquina %s apresentou um pico de uso na RAM considerado crítico,"
                         + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
+                    log.escreverTexto("\nRAM-STATUS-CRITICO: ");
             } 
 
             if (porcentagemMemoriaMassa >= hdAlerta && porcentagemMemoriaMassa < hdAlerta) {
                 enviarNotificacao(String.format("A máquina %s está com a memória de massa em status de alerta", this.usuario));
+                log.escreverTexto("\nHD-STATUS-ALERTA: ");
             } else if (porcentagemMemoriaMassa >= hdAlerta) {
                 enviarNotificacao(String.format("A máquina %s apresentou um pico de uso no HD considerado crítico,"
                         + " recomendamos entrar com uma medida preventiva imediatamente", this.usuario));
+                        log.escreverTexto("\nHD-STATUS-CRITICO: ");
             } 
 
     }

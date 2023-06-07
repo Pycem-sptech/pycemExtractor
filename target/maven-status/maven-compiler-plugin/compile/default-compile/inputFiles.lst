@@ -1,16 +1,16 @@
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\TelaExibicaoDeDados.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\Teste.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\Dados.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\TelaLogin.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\slack\SlackConfig.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\database\Totem.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\database\Usuario.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\Main.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\database\Database.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\database\Registro.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\database\Alerta.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\TelaCadastroPrimeiraVez.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\database\DatabaseMySQL.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\slack\PycemNotify.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\Log.java
-C:\Users\pedro\OneDrive\Documentos\projeto-pi\pycemExtractor\src\main\java\telas\Utilitarios.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/database/Alerta.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/TelaLogin.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/Log.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/database/DatabaseMySQL.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/TelaCadastroPrimeiraVez.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/database/Usuario.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/Teste.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/Dados.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/slack/SlackConfig.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/TelaExibicaoDeDados.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/database/Totem.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/database/Database.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/Main.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/slack/PycemNotify.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/database/Registro.java
+/home/yara/Área de Trabalho/restauração da antiga versão no git/pycemExtractor/src/main/java/telas/Utilitarios.java
